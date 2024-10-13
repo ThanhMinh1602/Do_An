@@ -1,44 +1,36 @@
-// import 'package:flutter/material.dart';
-// import 'package:flutter_svg/svg.dart';
-// import 'package:galaxy_web3/app/constants/app_color.dart';
-// import 'package:galaxy_web3/gen/assets.gen.dart';
+import 'package:do_an_flutter/core/constants/app_color.dart';
+import 'package:do_an_flutter/gen/assets.gen.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 
-// class AppBarCuastom extends StatelessWidget implements PreferredSizeWidget {
-//   const AppBarCuastom({super.key});
+class AppBarCuastom extends StatelessWidget implements PreferredSizeWidget {
+  final BuildContext context;
+  final List<Widget>? actions;
+  const AppBarCuastom(
+    this.context, {
+    super.key,
+    this.actions,
+  });
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return AppBar(
-//       backgroundColor: AppColor.appBarColor,
-//       leading: IconButton(
-//         onPressed: () {},
-//         icon: SvgPicture.asset(
-//           Assets.images.iconMenu,
-//           width: 28.0,
-//           height: 28.0,
-//         ),
-//       ),
-//       title: SvgPicture.asset(Assets.images.logo, width: 36.0, height: 36.0),
-//       centerTitle: true,
-//       actions: [
-//         OutlinedButton(
-//           onPressed: () {},
-//           style: const ButtonStyle(
-//             textStyle: WidgetStatePropertyAll(
-//                 TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
-//           ),
-//           child: const Row(
-//             mainAxisAlignment: MainAxisAlignment.center,
-//             children: [
-//               Text('Connect Wallet'),
-//             ],
-//           ),
-//         ),
-//         const SizedBox(width: 16.0)
-//       ],
-//     );
-//   }
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+      backgroundColor: AppColor.appBarColor,
+      leading: IconButton(
+        onPressed: () => Scaffold.of(context).openDrawer(),
+        icon: SvgPicture.asset(
+          Assets.images.iconMenu,
+          width: 28.0,
+          height: 28.0,
+        ),
+      ),
+      title: SvgPicture.asset(Assets.icons.logo, width: 36.0.w, height: 36.0.w),
+      centerTitle: true,
+      actions: [...actions ?? [], SizedBox(width: 16.0.w)],
+    );
+  }
 
-//   @override
-//   Size get preferredSize => const Size(double.infinity, 64.0);
-// }
+  @override
+  Size get preferredSize => const Size(double.infinity, 64.0);
+}

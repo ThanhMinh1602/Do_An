@@ -1,5 +1,5 @@
 import 'package:do_an_flutter/core/routers/router_config.dart';
-import 'package:do_an_flutter/features/loadingpage/presentation/page/loading_page_srceen.dart';
+import 'package:do_an_flutter/features/loadingpage/presentation/page/loading_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -11,7 +11,7 @@ final router = GoRouter(
   routes: [
     GoRoute(
       path: Routes.homePage,
-      builder: (context, state) => const LoadingPageSrceen(),
+      builder: (context, state) => const LoadingPage(),
     )
   ],
 );

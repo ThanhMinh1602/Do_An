@@ -58,27 +58,26 @@ class _GetInstantProfitsWidgetState extends State<GetInstantProfitsWidget> {
     final double screenWidth = MediaQuery.of(context).size.width;
     final double screenHeight = MediaQuery.of(context).size.height;
 
-    return AspectRatio(
-      aspectRatio: 0.444,
-      child: SizedBox(
-        height: screenHeight,
-        width: screenWidth,
-        child: PageView.builder(
-            controller: pageController,
-            itemCount: instantProfits.length,
-            itemBuilder: (context, index) {
-              return _buildPageWidget(
-                  screenWidth: screenHeight,
-                  imagePath: instantProfits[index].imagePath,
-                  title: instantProfits[index].title,
-                  content: instantProfits[index].content);
-            }),
-      ),
+    return SizedBox(
+      height: screenHeight,
+      width: screenWidth,
+      child: PageView.builder(
+          controller: pageController,
+          itemCount: instantProfits.length,
+          itemBuilder: (context, index) {
+            return _buildPageWidget(
+                screenWidth: screenWidth,
+                screenHeight: screenHeight,
+                imagePath: instantProfits[index].imagePath,
+                title: instantProfits[index].title,
+                content: instantProfits[index].content);
+          }),
     );
   }
 
   Widget _buildPageWidget(
       {required double screenWidth,
+      required double screenHeight,
       required String imagePath,
       required String title,
       required String content}) {
@@ -122,8 +121,10 @@ class _GetInstantProfitsWidgetState extends State<GetInstantProfitsWidget> {
             left: 0,
             right: 0,
             child: ContainerCustomPaint(
-              aspectRatio: 2,
-              screenWidth: screenWidth,
+              width: screenWidth,
+              height: (screenHeight < 700)
+                  ? screenHeight * 0.56
+                  : screenHeight * 0.5,
               child: Row(
                 children: [
                   const PageNavigationButton(),
@@ -135,12 +136,16 @@ class _GetInstantProfitsWidgetState extends State<GetInstantProfitsWidget> {
                         spaceH36,
                         Text(title,
                             textAlign: TextAlign.center,
-                            style: AppStyle.textTitle),
+                            style: (screenHeight < 700)
+                                ? AppStyle.textTitleScreenHeight700
+                                : AppStyle.textTitle),
                         SizedBox(height: 8.0.h),
                         Text(
                           content,
                           textAlign: TextAlign.center,
-                          style: AppStyle.textContent,
+                          style: (screenHeight < 700)
+                              ? AppStyle.textContentScreenHeight700
+                              : AppStyle.textContent,
                         ),
                         const Spacer(),
                         PageIndicatorCustom(

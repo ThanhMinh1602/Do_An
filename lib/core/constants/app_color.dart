@@ -21,6 +21,8 @@ class AppColor {
   static const blue700 = Color(0xff1976D2);
   static var green500 = Colors.green[500];
   static var grey200 = Colors.grey[200];
+  static var grey800 = Colors.grey[800];
+  static var grey900 = Colors.grey[900];
 
   static var grey300 = Colors.grey[300];
   static var grey500 = Colors.grey[500];

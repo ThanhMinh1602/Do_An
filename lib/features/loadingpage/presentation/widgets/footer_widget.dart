@@ -18,7 +18,7 @@ class FooterWidget extends StatelessWidget {
       child: Column(
         children: [
           SvgPicture.asset(
-            Assets.images.logo,
+            Assets.icons.logo,
             width: 48.0.w,
             height: 48.0.w,
           ),

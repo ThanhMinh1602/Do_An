@@ -29,6 +29,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   bloc: ^8.1.4
+  blur: ^4.0.0
   build_runner: ^2.4.13
   carousel_slider: ^5.0.0
   copy_with_extension: ^5.0.4

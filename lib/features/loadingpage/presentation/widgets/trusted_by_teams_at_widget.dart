@@ -35,27 +35,31 @@ class TrustedByTeamsAtWidget extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SvgPicture.asset(Assets.images.centrifugeSvg),
+                  SvgPicture.asset(
+                    Assets.images.centrifugeSvg,
+                    height: 32.h,
+                  ),
                   spaceW18,
-                  SvgPicture.asset(Assets.images.fireblocksSvg),
+                  SvgPicture.asset(Assets.images.fireblocksSvg, height: 32.h),
                   spaceW18,
-                  SvgPicture.asset(Assets.images.consensysSvg),
+                  SvgPicture.asset(Assets.images.consensysSvg, height: 32.h),
                 ],
               ),
               spaceH18,
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SvgPicture.asset(Assets.images.jpMorganChaseSvg),
+                  SvgPicture.asset(Assets.images.jpMorganChaseSvg,
+                      height: 32.h),
                   spaceW18,
-                  SvgPicture.asset(Assets.images.masSvg),
+                  SvgPicture.asset(Assets.images.masSvg, height: 32.h),
                 ],
               ),
               spaceH18,
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SvgPicture.asset(Assets.images.bancoCentral),
+                  SvgPicture.asset(Assets.images.bancoCentral, height: 32.h),
                 ],
               )
             ],
