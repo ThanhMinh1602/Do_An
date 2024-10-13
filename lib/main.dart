@@ -1,4 +1,4 @@
-import 'package:do_an_flutter/core/routers/router_page.dart';
+import 'package:do_an_flutter/core/routers/app_router.dart';
 import 'package:do_an_flutter/features/loadingpage/presentation/cubit/loading_page_cubit.dart';
 import 'package:do_an_flutter/features/menu/presentation/cubit/app_menu_cubit.dart';
 import 'package:flutter/material.dart';
@@ -21,12 +21,13 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => LoadingPageCubit()),
-        BlocProvider(create: (_) => AppMenuCubit())
+        BlocProvider(create: (_) => AppMenuCubit()),
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        routerConfig: router,
+        routerConfig: AppRouter.router, // Sử dụng router từ AppRouter
       ),
     );
   }

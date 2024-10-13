@@ -1,7 +1,7 @@
-import 'package:do_an_flutter/features/menu/data/menu_model.dart';
 import 'package:do_an_flutter/core/constants/app_color.dart';
 import 'package:do_an_flutter/core/utils/font_weight.dart';
 import 'package:do_an_flutter/core/utils/spaces.dart';
+import 'package:do_an_flutter/features/menu/data/menu_model.dart';
 import 'package:do_an_flutter/features/menu/presentation/cubit/app_menu_cubit.dart';
 import 'package:do_an_flutter/features/menu/presentation/cubit/app_menu_state.dart';
 import 'package:do_an_flutter/gen/assets.gen.dart';
@@ -9,23 +9,29 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 
 class AppMenu extends StatelessWidget {
   const AppMenu({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Drawer(
-      backgroundColor: AppColor.grey900,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(0),
-      ),
-      width: 300.w,
-      child: Column(
-        children: [
-          _buildHeader(),
-          _buildMenuList(context),
-        ],
+    return BlocListener<AppMenuCubit, AppMenuState>(
+      listener: (context, state) {
+        context.go(state.routePath);
+      },
+      child: Drawer(
+        backgroundColor: AppColor.grey900,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(0),
+        ),
+        width: 300.w,
+        child: Column(
+          children: [
+            _buildHeader(),
+            _buildMenuList(context),
+          ],
+        ),
       ),
     );
   }
@@ -46,21 +52,21 @@ class AppMenu extends StatelessWidget {
 
   Widget _buildMenuList(BuildContext context) {
     return ListView.separated(
-      itemCount: MenuModel.drawers.length,
+      itemCount: MenuModel.menuLists.length,
       shrinkWrap: true,
       padding: EdgeInsets.all(16.0.w),
       separatorBuilder: (context, index) => SizedBox(height: 8.0.h),
       itemBuilder: (context, index) {
-        final drawerItem = MenuModel.drawers[index];
+        final drawerItem = MenuModel.menuLists[index];
         return BlocBuilder<AppMenuCubit, AppMenuState>(
           builder: (context, state) {
             return _buildDrawerItem(
               iconPath: drawerItem.iconPath,
               text: drawerItem.text,
-              isSelected: state.index == index,
+              isSelected: state.routePath == drawerItem.iconPath,
               onTap: () {
-                context.read<AppMenuCubit>().changePage(index);
-                // Navigator.pop(context);
+                context.read<AppMenuCubit>().changePage(drawerItem.route);
+                Navigator.pop(context);
               },
             );
           },
@@ -75,7 +81,7 @@ class AppMenu extends StatelessWidget {
     required bool isSelected,
     void Function()? onTap,
   }) {
-    return InkWell(
+    return GestureDetector(
       onTap: onTap,
       child: Container(
         width: double.infinity,

@@ -45,6 +45,8 @@ dependencies:
   go_router: ^14.3.0
   gradient_borders: ^1.0.1
   json_serializable: ^6.8.0
+  outline_gradient_button: ^2.0.1+1
+  page_transition: ^2.1.0
   smooth_page_indicator: ^1.2.0+3
   video_player: ^2.9.2
 

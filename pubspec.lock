@@ -565,11 +565,27 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.0"
+  outline_gradient_button:
+    dependency: "direct main"
+    description:
+      name: outline_gradient_button
+      sha256: "006673015f090c314d7a14b41216ed984b21e8b55d0c8eb502d93e0bbd6b65ba"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.1+1"
   package_config:
     dependency: transitive
     description:
       name: package_config
       sha256: "1c5b77ccc91e4823a5af61ee74e6b972db1ef98c2ff5a18d3161c982a55448bd"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.1.0"
+  page_transition:
+    dependency: "direct main"
+    description:
+      name: page_transition
+      sha256: dee976b1f23de9bbef5cd512fe567e9f6278caee11f5eaca9a2115c19dc49ef6
       url: "https://pub.dev"
     source: hosted
     version: "2.1.0"

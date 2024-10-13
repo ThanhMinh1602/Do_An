@@ -3,7 +3,7 @@ import 'package:do_an_flutter/features/menu/presentation/cubit/app_menu_state.da
 
 class AppMenuCubit extends Cubit<AppMenuState> {
   AppMenuCubit() : super(const AppMenuState());
-  void changePage(int index) {
-    emit(state.copyWith(index: index));
+  void changePage(String routerPath) {
+    emit(state.copyWith(routePath: routerPath));
   }
 }

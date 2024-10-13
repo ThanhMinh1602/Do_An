@@ -137,7 +137,7 @@ class _GetInstantProfitsWidgetState extends State<GetInstantProfitsWidget> {
                         Text(title,
                             textAlign: TextAlign.center,
                             style: (screenHeight < 700)
-                                ? AppStyle.textTitleScreenHeight700
+                                ? AppStyle.semibold_20
                                 : AppStyle.textTitle),
                         SizedBox(height: 8.0.h),
                         Text(

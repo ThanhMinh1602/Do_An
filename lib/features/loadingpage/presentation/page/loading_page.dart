@@ -21,10 +21,25 @@ class LoadingPage extends StatefulWidget {
 
 class _LoadingPageState extends State<LoadingPage> {
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
+    final route = ModalRoute.of(context);
+    print('Accessing route: $route');
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColor.backgroundColor,
-      appBar: AppBarCuastom(context),
+      appBar: AppBarCustom(
+        context,
+      ),
       drawer: const AppMenu(),
       body: ListView(
         children: [
