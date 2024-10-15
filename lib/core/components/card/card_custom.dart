@@ -74,7 +74,7 @@ class CardCustom extends StatelessWidget {
               textAlign: image != null && image!.isNotEmpty
                   ? TextAlign.start
                   : TextAlign.center,
-              style: contentStyle ?? AppStyle.textContent,
+              style: contentStyle ?? AppStyle.regular_14,
             ),
           ],
         ),
