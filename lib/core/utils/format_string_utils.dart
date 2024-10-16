@@ -6,12 +6,12 @@ class FormatStringUtils {
     return '${duration.inHours > 0 ? '${twoDigits(duration.inHours)}:' : ''}$minutes:$seconds';
   }
 
-  static String shortenString(String input) {
+  static String shortenString(String input, {int? selectQuantityNumber}) {
     if (input.length <= 12) {
       return input;
     }
-    String start = input.substring(0, 6);
-    String end = input.substring(input.length - 6);
+    String start = input.substring(0, selectQuantityNumber ?? 6);
+    String end = input.substring(input.length - (selectQuantityNumber ?? 6));
     return '$start...$end';
   }
 }

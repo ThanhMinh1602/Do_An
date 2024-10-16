@@ -117,6 +117,11 @@ class AppStyle {
     fontWeight: bold,
     color: AppColor.grey500,
   );
+  static TextStyle bold_24 = TextStyle(
+    fontSize: 24.0.sp,
+    fontWeight: bold,
+    color: AppColor.whiteColor,
+  );
 
   static TextStyle bold_20 = TextStyle(
     fontSize: 20.0.sp,
@@ -133,6 +138,11 @@ class AppStyle {
   // Medium styles
   static TextStyle medium_28 = TextStyle(
     fontSize: 28.sp,
+    fontWeight: medium,
+    color: AppColor.whiteColor,
+  );
+  static TextStyle medium_12 = TextStyle(
+    fontSize: 12.sp,
     fontWeight: medium,
     color: AppColor.whiteColor,
   );

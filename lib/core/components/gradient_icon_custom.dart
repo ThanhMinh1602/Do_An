@@ -7,6 +7,7 @@ class GradientIconCustom extends StatelessWidget {
   final String iconPath;
   final double? width;
   final double? height;
+  final double? borderRadius;
   final EdgeInsetsGeometry? padding;
   const GradientIconCustom({
     super.key,
@@ -14,6 +15,7 @@ class GradientIconCustom extends StatelessWidget {
     this.width,
     this.height,
     this.padding,
+    this.borderRadius,
   });
 
   @override
@@ -25,14 +27,17 @@ class GradientIconCustom extends StatelessWidget {
         padding: padding ?? EdgeInsets.all(12.0.w),
         decoration: BoxDecoration(
             gradient: AppColor.buildGradient(),
-            boxShadow: [
-              BoxShadow(
-                  offset: const Offset(0, 4),
-                  blurRadius: 24.0.r,
-                  spreadRadius: 0,
-                  color: AppColor.c_DC349E.withOpacity(0.5))
-            ],
-            borderRadius: BorderRadius.circular(100.0.r)),
+            boxShadow: borderRadius == null
+                ? [
+                    BoxShadow(
+                      offset: const Offset(0, 4),
+                      blurRadius: 24.0.r,
+                      spreadRadius: 0,
+                      color: AppColor.c_DC349E.withOpacity(0.5),
+                    ),
+                  ]
+                : [],
+            borderRadius: BorderRadius.circular(borderRadius ?? 100.0.r)),
         child: SvgPicture.asset(
           iconPath,
         ),

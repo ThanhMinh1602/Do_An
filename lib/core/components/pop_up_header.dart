@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PopUpHeader extends StatelessWidget {
-  const PopUpHeader({super.key});
+  final String? title;
+  const PopUpHeader({super.key, this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,7 @@ class PopUpHeader extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 spaceW24,
-                Text('Connect a wallet',
+                Text(title ?? 'Connect a wallet',
                     style: AppStyle.semibold_20.copyWith(shadows: [
                       BoxShadow(
                           offset: const Offset(0, 4),

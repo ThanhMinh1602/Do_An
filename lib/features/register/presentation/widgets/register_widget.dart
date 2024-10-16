@@ -1,14 +1,20 @@
 import 'dart:ui';
 
+import 'package:do_an_flutter/core/components/appbar/app_bar_desktop.dart';
 import 'package:do_an_flutter/core/components/appbar/app_bar_mobile.dart';
 import 'package:do_an_flutter/core/components/background/background_custom.dart';
+import 'package:do_an_flutter/core/components/bottom_sheets/bottom_sheets_custom.dart';
 import 'package:do_an_flutter/core/components/bottombar/bottom_bar_custom.dart';
+import 'package:do_an_flutter/core/components/button/custom_button.dart';
 import 'package:do_an_flutter/core/components/card/gradient_container_custom.dart';
 import 'package:do_an_flutter/core/constants/app_color.dart';
 import 'package:do_an_flutter/core/utils/format_string_utils.dart';
 import 'package:do_an_flutter/core/utils/spaces.dart';
+import 'package:do_an_flutter/features/register/presentation/cubit/register_cubit.dart';
 import 'package:do_an_flutter/gen/assets.gen.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 import '../../../../core/constants/app_style.dart';
@@ -30,7 +36,8 @@ class _RegisterWidgetsState extends State<RegisterWidget> {
         appBar: AppBarMobile(
           context,
         ),
-        bottomNavigationBar: const BottomBarCustom(),
+        bottomNavigationBar: _buildDisclaimerBottomSheets(context,
+            onTapRegister: () => context.read<RegisterCubit>().onTapRegister()),
         body: BackgroundCustom(
           child: ListView(
             padding: EdgeInsets.all(24.0.w),
@@ -72,6 +79,76 @@ class _RegisterWidgetsState extends State<RegisterWidget> {
             ],
           ),
         ));
+  }
+
+  BottomBarCustom _buildDisclaimerBottomSheets(BuildContext context,
+      {Function? onTapRegister}) {
+    return BottomBarCustom(
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              spaceW8,
+              RichText(
+                  text: TextSpan(children: [
+                TextSpan(
+                    text: 'I have read and agree to the ',
+                    style: AppStyle.regular_14),
+                TextSpan(
+                    text: 'Disclaimer',
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = () {
+                        BottomSheetsCustom.bottomSheet(context,
+                            title: 'Disclaimer',
+                            child: ListView(
+                              shrinkWrap: true,
+                              children: [
+                                Text(
+                                  'What is Lorem Ipsum?',
+                                  style: AppStyle.regular_14,
+                                ),
+                                spaceH10,
+                                Text(
+                                  textAlign: TextAlign.justify,
+                                  'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+                                  style: AppStyle.regular_14,
+                                ),
+                                spaceH10,
+                                Text(
+                                  'Where does it come from?',
+                                  style: AppStyle.regular_14,
+                                ),
+                                spaceH10,
+                                Text(
+                                  textAlign: TextAlign.justify,
+                                  'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.',
+                                  style: AppStyle.regular_14,
+                                ),
+                                spaceH10,
+                                Text(
+                                  textAlign: TextAlign.justify,
+                                  'The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.',
+                                  style: AppStyle.regular_14,
+                                ),
+                              ],
+                            ));
+                      },
+                    style: AppStyle.regular_14
+                        .copyWith(color: AppColor.primaryColor))
+              ]))
+            ],
+          ),
+          spaceH12,
+          CustomButton(
+            btnTxt: 'Register',
+            icon: Assets.icons.arrowRightFill.path,
+            gradient: AppColor.buildGradient(),
+            onTap: onTapRegister,
+          )
+        ],
+      ),
+    );
   }
 
   Container _builddTextField() {

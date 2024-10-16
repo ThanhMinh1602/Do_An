@@ -1,3 +1,4 @@
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Dimensions {
   static const double fontSizeExtraSmall = 10.0;
@@ -22,5 +23,6 @@ class Dimensions {
   static const double radiusLarge = 15.0;
   static const double radiusExtraLarge = 20.0;
 
-
+  static double paddingHorizontal = 16.0.w;
+  static double paddingVertical = 24.0.w;
 }

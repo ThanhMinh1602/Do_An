@@ -10,6 +10,7 @@ class GradientContainerCustom extends StatelessWidget {
   final double? width;
   final double? height;
   final double? blur;
+  final BoxBorder? border;
   final Gradient? gradient;
   final Gradient? borderGradient;
   final EdgeInsetsGeometry? padding;
@@ -25,6 +26,7 @@ class GradientContainerCustom extends StatelessWidget {
     this.borderGradient,
     this.padding,
     this.height,
+    this.border,
   });
 
   @override
@@ -38,10 +40,11 @@ class GradientContainerCustom extends StatelessWidget {
           width: width,
           height: height,
           decoration: BoxDecoration(
-              border: GradientBoxBorder(
-                gradient:
-                    borderGradient ?? AppColor.buildGradient(opacity: 0.1),
-              ),
+              border: border ??
+                  GradientBoxBorder(
+                    gradient:
+                        borderGradient ?? AppColor.buildGradient(opacity: 0.1),
+                  ),
               borderRadius: borderRadius ?? BorderRadius.circular(12.0.r),
               gradient: gradient ?? AppColor.buildGradient(opacity: 0.1)),
           child: child,
