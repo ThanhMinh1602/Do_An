@@ -1,8 +1,9 @@
-import 'package:do_an_flutter/core/components/circle_gradient_blur.dart';
+import 'package:do_an_flutter/core/components/blur/circle_gradient_blur.dart';
 import 'package:do_an_flutter/core/components/text/gradient_text.dart';
 import 'package:do_an_flutter/core/constants/app_color.dart';
 import 'package:do_an_flutter/core/constants/app_style.dart';
 import 'package:do_an_flutter/core/utils/font_weight.dart';
+import 'package:do_an_flutter/core/utils/format_string_utils.dart';
 import 'package:do_an_flutter/core/utils/spaces.dart';
 import 'package:do_an_flutter/features/loadingpage/presentation/cubit/loading_cubit.dart';
 import 'package:do_an_flutter/gen/assets.gen.dart';
@@ -40,15 +41,20 @@ class _VideoTutorialsWidgetState extends State<DtVideoTutorialsWidget> {
       child: Stack(
         alignment: Alignment.center,
         children: [
-          const Positioned(bottom: 0, child: CircleGradientBlur()),
+          const Positioned(
+              bottom: 0,
+              child: CircleGradientBlur(
+                width: 414,
+                height: 414,
+              )),
           Column(
             children: [
               GradientText(
-                text: "Galaxy\nVideo Tutorials",
-                style: AppStyle.textHeader,
+                text: "Galaxy Video Tutorials",
+                style: AppStyle.bold_36,
                 gradient: AppColor.buildGradient(),
               ),
-              spaceH24,
+              const SizedBox(height: 24.0),
               _buildVideoPlayer(),
             ],
           ),
@@ -59,18 +65,22 @@ class _VideoTutorialsWidgetState extends State<DtVideoTutorialsWidget> {
 
   Widget _buildVideoPlayer() {
     return Center(
-      child: AspectRatio(
-        aspectRatio: context
-            .read<LoadingCubit>()
-            .videoPlayerController
-            .value
-            .aspectRatio,
-        child: Stack(
-          children: [
-            VideoPlayer(context.read<LoadingCubit>().videoPlayerController),
-            Center(child: _buildControlButtons()),
-            _buildBottomControlBar(),
-          ],
+      child: SizedBox(
+        width: 736,
+        height: 418,
+        child: AspectRatio(
+          aspectRatio: context
+              .read<LoadingCubit>()
+              .videoPlayerController
+              .value
+              .aspectRatio,
+          child: Stack(
+            children: [
+              VideoPlayer(context.read<LoadingCubit>().videoPlayerController),
+              Center(child: _buildControlButtons()),
+              _buildBottomControlBar(),
+            ],
+          ),
         ),
       ),
     );
@@ -86,8 +96,8 @@ class _VideoTutorialsWidgetState extends State<DtVideoTutorialsWidget> {
         ),
         Stack(
           children: [
-            CircleAvatar(
-              radius: 35.0.w,
+            const CircleAvatar(
+              radius: 35.0,
               backgroundColor: AppColor.backgroundColor,
             ),
             GestureDetector(
@@ -100,9 +110,9 @@ class _VideoTutorialsWidgetState extends State<DtVideoTutorialsWidget> {
                 }
               },
               child: Container(
-                width: 70.0.w,
-                height: 70.0.w,
-                padding: EdgeInsets.all(16.w),
+                width: 70.0,
+                height: 70.0,
+                padding: const EdgeInsets.all(16.0),
                 decoration: BoxDecoration(
                   border: GradientBoxBorder(
                     width: 8.0,
@@ -130,8 +140,8 @@ class _VideoTutorialsWidgetState extends State<DtVideoTutorialsWidget> {
   Widget _buildBottomControlBar() {
     return Positioned(
       bottom: 12,
-      left: 12.0.w,
-      right: 12.0.w,
+      left: 12.0,
+      right: 12.0,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -139,16 +149,16 @@ class _VideoTutorialsWidgetState extends State<DtVideoTutorialsWidget> {
             valueListenable: context.read<LoadingCubit>().videoPlayerController,
             builder: (context, VideoPlayerValue value, child) {
               return Text(
-                '${_formatDuration(value.position)} / ${_formatDuration(value.duration)}',
-                style: TextStyle(
-                  fontSize: 10.0.sp,
+                '${FormatStringUtils.formatDurationVideo(value.position)} / ${FormatStringUtils.formatDurationVideo(value.duration)}',
+                style: const TextStyle(
+                  fontSize: 10.0, 
                   fontWeight: medium,
                   color: AppColor.whiteColor,
                 ),
               );
             },
           ),
-          spaceW8,
+          const SizedBox(width: 8.0),
           Expanded(
             child: VideoProgressIndicator(
               context.read<LoadingCubit>().videoPlayerController,
@@ -160,17 +170,10 @@ class _VideoTutorialsWidgetState extends State<DtVideoTutorialsWidget> {
               ),
             ),
           ),
-          spaceW8,
+          const SizedBox(width: 8.0),
           SvgPicture.asset(Assets.icons.zoomFullVideo),
         ],
       ),
     );
-  }
-
-  String _formatDuration(Duration duration) {
-    String twoDigits(int n) => n.toString().padLeft(2, '0');
-    final minutes = twoDigits(duration.inMinutes.remainder(60));
-    final seconds = twoDigits(duration.inSeconds.remainder(60));
-    return '${duration.inHours > 0 ? '${twoDigits(duration.inHours)}:' : ''}$minutes:$seconds';
   }
 }

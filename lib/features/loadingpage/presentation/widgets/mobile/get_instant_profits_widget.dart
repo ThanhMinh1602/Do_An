@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:do_an_flutter/core/components/button/page_navigation_button.dart';
 import 'package:do_an_flutter/core/components/card/model/information.dart';
-import 'package:do_an_flutter/core/components/circle_gradient_blur.dart';
+import 'package:do_an_flutter/core/components/blur/circle_gradient_blur.dart';
 import 'package:do_an_flutter/core/components/container_custom_paint.dart';
 import 'package:do_an_flutter/core/components/page_indicator_custom.dart';
 import 'package:do_an_flutter/core/components/text/gradient_text.dart';

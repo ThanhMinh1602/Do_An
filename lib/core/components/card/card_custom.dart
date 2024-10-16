@@ -12,6 +12,10 @@ class CardCustom extends StatelessWidget {
   final TextStyle? contentStyle;
   final String? image;
   final EdgeInsetsGeometry? margin;
+  final double? imageWidth;
+  final double? imageHeight;
+  final double? width;
+  final double? height;
 
   const CardCustom({
     super.key,
@@ -21,64 +25,74 @@ class CardCustom extends StatelessWidget {
     this.contentStyle,
     this.image,
     this.margin,
+    this.imageWidth,
+    this.imageHeight,
+    this.width,
+    this.height,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: margin ?? EdgeInsets.only(top: 20.h),
-      padding: EdgeInsets.symmetric(vertical: 32.0.h, horizontal: 16.0.w),
-      decoration: BoxDecoration(
-        border: GradientBoxBorder(
-          width: 1.0,
-          gradient: AppColor.buildGradient(opacity: 0.2),
-        ),
-        borderRadius: BorderRadius.circular(16.0.r),
-        gradient: AppColor.buildGradient(opacity: 0.1),
-      ),
-      child: Expanded(
-        child: Column(
-          crossAxisAlignment: image != null && image!.isNotEmpty
-              ? CrossAxisAlignment.start
-              : CrossAxisAlignment.center,
-          children: [
-            if (image != null && image!.isNotEmpty)
-              Align(
-                alignment: Alignment.centerLeft,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(3.0.r),
-                  child: Image.asset(
-                    image!,
-                    width: 68.8.w,
-                    height: 48.0.h,
-                    fit: BoxFit.cover,
+    return Stack(
+      children: [
+        Container(
+          width: width,
+          height: height,
+          margin: margin ?? EdgeInsets.only(top: 20.h),
+          padding: EdgeInsets.symmetric(vertical: 32.0.h, horizontal: 16.0.w),
+          decoration: BoxDecoration(
+            border: GradientBoxBorder(
+              width: 1.0,
+              gradient: AppColor.buildGradient(opacity: 0.2),
+            ),
+            borderRadius: BorderRadius.circular(16.0.r),
+            gradient: AppColor.buildGradient(opacity: 0.1),
+          ),
+          child: Expanded(
+            child: Column(
+              crossAxisAlignment: image != null && image!.isNotEmpty
+                  ? CrossAxisAlignment.start
+                  : CrossAxisAlignment.center,
+              children: [
+                if (image != null && image!.isNotEmpty)
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(3.0.r),
+                      child: Image.asset(
+                        image!,
+                        width: imageWidth ?? 68.8.w,
+                        height: imageHeight ?? 48.0.h,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                if (image != null && image!.isNotEmpty) spaceH12,
+                Align(
+                  alignment: (image != null && image!.isNotEmpty)
+                      ? Alignment.centerLeft
+                      : Alignment.center,
+                  child: Text(
+                    textAlign: (image != null && image!.isNotEmpty)
+                        ? TextAlign.start
+                        : TextAlign.center,
+                    title,
+                    style: titleStyle ?? AppStyle.textTitle,
                   ),
                 ),
-              ),
-            if (image != null && image!.isNotEmpty) spaceH12,
-            Align(
-              alignment: (image != null && image!.isNotEmpty)
-                  ? Alignment.centerLeft
-                  : Alignment.center,
-              child: Text(
-                textAlign: (image != null && image!.isNotEmpty)
-                    ? TextAlign.start
-                    : TextAlign.center,
-                title,
-                style: titleStyle ?? AppStyle.textTitle,
-              ),
+                SizedBox(height: 8.0.h),
+                Text(
+                  content,
+                  textAlign: image != null && image!.isNotEmpty
+                      ? TextAlign.start
+                      : TextAlign.center,
+                  style: contentStyle ?? AppStyle.regular_14,
+                ),
+              ],
             ),
-            SizedBox(height: 8.0.h),
-            Text(
-              content,
-              textAlign: image != null && image!.isNotEmpty
-                  ? TextAlign.start
-                  : TextAlign.center,
-              style: contentStyle ?? AppStyle.regular_14,
-            ),
-          ],
+          ),
         ),
-      ),
+      ],
     );
   }
 }

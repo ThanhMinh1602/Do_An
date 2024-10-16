@@ -18,7 +18,7 @@ List<NewItemModel> newItemModels = [
   NewItemModel(
       id: '0',
       imagePath:
-          'https://cdn.pixabay.com/photo/2021/10/10/03/21/stock-market-6695482_1280.jpg',
+          'https://cdn.pixabay.com/photo/2018/09/09/08/36/network-3664108_1280.jpg',
       title: '0_SoneFi là gì? Cách tham gia SoneFi săn airdrop SOE token',
       subTitle: [
         'Các tựa game Telegram liên tục thông báo kế hoạch ra mắt token vào thời điểm tháng 9, 10. Dự án X Empire cũng thuộc trong số này, cho phép người chơi hoá thân thành Elon Musk để kiếm thưởng.',
@@ -35,7 +35,7 @@ List<NewItemModel> newItemModels = [
   NewItemModel(
       id: '1',
       imagePath:
-          'https://cdn.pixabay.com/photo/2021/10/10/03/21/stock-market-6695482_1280.jpg',
+          'https://cdn.pixabay.com/photo/2018/09/09/08/36/network-3664108_1280.jpg',
       title: '1_SoneFi là gì? Cách tham gia SoneFi săn airdrop SOE token',
       subTitle: [
         'Các tựa game Telegram liên tục thông báo kế hoạch ra mắt token vào thời điểm tháng 9, 10. Dự án X Empire cũng thuộc trong số này, cho phép người chơi hoá thân thành Elon Musk để kiếm thưởng.',
@@ -52,7 +52,7 @@ List<NewItemModel> newItemModels = [
   NewItemModel(
       id: '2',
       imagePath:
-          'https://cdn.pixabay.com/photo/2021/10/10/03/21/stock-market-6695482_1280.jpg',
+          'https://cdn.pixabay.com/photo/2018/09/09/08/36/network-3664108_1280.jpg',
       title: '2_SoneFi là gì? Cách tham gia SoneFi săn airdrop SOE token',
       subTitle: [
         'Các tựa game Telegram liên tục thông báo kế hoạch ra mắt token vào thời điểm tháng 9, 10. Dự án X Empire cũng thuộc trong số này, cho phép người chơi hoá thân thành Elon Musk để kiếm thưởng.',
@@ -69,7 +69,7 @@ List<NewItemModel> newItemModels = [
   NewItemModel(
       id: '3',
       imagePath:
-          'https://cdn.pixabay.com/photo/2021/10/10/03/21/stock-market-6695482_1280.jpg',
+          'https://cdn.pixabay.com/photo/2018/09/09/08/36/network-3664108_1280.jpg',
       title: '3_SoneFi là gì? Cách tham gia SoneFi săn airdrop SOE token',
       subTitle: [
         'Các tựa game Telegram liên tục thông báo kế hoạch ra mắt token vào thời điểm tháng 9, 10. Dự án X Empire cũng thuộc trong số này, cho phép người chơi hoá thân thành Elon Musk để kiếm thưởng.',

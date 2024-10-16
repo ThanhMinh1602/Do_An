@@ -1,7 +1,7 @@
 import 'package:do_an_flutter/core/components/card/card_custom.dart';
 import 'package:do_an_flutter/core/components/card/model/information.dart';
 import 'package:do_an_flutter/core/components/carousel_slider/carousel_slider_custom.dart';
-import 'package:do_an_flutter/core/components/circle_gradient_blur.dart';
+import 'package:do_an_flutter/core/components/blur/circle_gradient_blur.dart';
 import 'package:do_an_flutter/core/components/gradient_icon_custom.dart';
 import 'package:do_an_flutter/core/components/page_indicator_custom.dart';
 import 'package:do_an_flutter/core/components/text/gradient_text.dart';
@@ -13,7 +13,6 @@ import 'package:do_an_flutter/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 
 // ignore: must_be_immutable
 class PowerLowestNetworkFeesWidget extends StatefulWidget {

@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$NewsState {
   bool get isLoading => throw _privateConstructorUsedError;
   List<NewItemModel> get newItemModels => throw _privateConstructorUsedError;
+  NewItemModel? get newItemModel => throw _privateConstructorUsedError;
 
   /// Create a copy of NewsState
   /// with the given fields replaced by the non-null parameter values.
@@ -31,7 +32,10 @@ abstract class $NewsStateCopyWith<$Res> {
   factory $NewsStateCopyWith(NewsState value, $Res Function(NewsState) then) =
       _$NewsStateCopyWithImpl<$Res, NewsState>;
   @useResult
-  $Res call({bool isLoading, List<NewItemModel> newItemModels});
+  $Res call(
+      {bool isLoading,
+      List<NewItemModel> newItemModels,
+      NewItemModel? newItemModel});
 }
 
 /// @nodoc
@@ -51,6 +55,7 @@ class _$NewsStateCopyWithImpl<$Res, $Val extends NewsState>
   $Res call({
     Object? isLoading = null,
     Object? newItemModels = null,
+    Object? newItemModel = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: null == isLoading
@@ -61,6 +66,10 @@ class _$NewsStateCopyWithImpl<$Res, $Val extends NewsState>
           ? _value.newItemModels
           : newItemModels // ignore: cast_nullable_to_non_nullable
               as List<NewItemModel>,
+      newItemModel: freezed == newItemModel
+          ? _value.newItemModel
+          : newItemModel // ignore: cast_nullable_to_non_nullable
+              as NewItemModel?,
     ) as $Val);
   }
 }
@@ -73,7 +82,10 @@ abstract class _$$InitialImplCopyWith<$Res>
       __$$InitialImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool isLoading, List<NewItemModel> newItemModels});
+  $Res call(
+      {bool isLoading,
+      List<NewItemModel> newItemModels,
+      NewItemModel? newItemModel});
 }
 
 /// @nodoc
@@ -91,6 +103,7 @@ class __$$InitialImplCopyWithImpl<$Res>
   $Res call({
     Object? isLoading = null,
     Object? newItemModels = null,
+    Object? newItemModel = freezed,
   }) {
     return _then(_$InitialImpl(
       isLoading: null == isLoading
@@ -101,6 +114,10 @@ class __$$InitialImplCopyWithImpl<$Res>
           ? _value._newItemModels
           : newItemModels // ignore: cast_nullable_to_non_nullable
               as List<NewItemModel>,
+      newItemModel: freezed == newItemModel
+          ? _value.newItemModel
+          : newItemModel // ignore: cast_nullable_to_non_nullable
+              as NewItemModel?,
     ));
   }
 }
@@ -110,7 +127,8 @@ class __$$InitialImplCopyWithImpl<$Res>
 class _$InitialImpl implements _Initial {
   const _$InitialImpl(
       {this.isLoading = false,
-      final List<NewItemModel> newItemModels = const []})
+      final List<NewItemModel> newItemModels = const [],
+      this.newItemModel})
       : _newItemModels = newItemModels;
 
   @override
@@ -126,8 +144,11 @@ class _$InitialImpl implements _Initial {
   }
 
   @override
+  final NewItemModel? newItemModel;
+
+  @override
   String toString() {
-    return 'NewsState(isLoading: $isLoading, newItemModels: $newItemModels)';
+    return 'NewsState(isLoading: $isLoading, newItemModels: $newItemModels, newItemModel: $newItemModel)';
   }
 
   @override
@@ -138,12 +159,14 @@ class _$InitialImpl implements _Initial {
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
             const DeepCollectionEquality()
-                .equals(other._newItemModels, _newItemModels));
+                .equals(other._newItemModels, _newItemModels) &&
+            (identical(other.newItemModel, newItemModel) ||
+                other.newItemModel == newItemModel));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, isLoading,
-      const DeepCollectionEquality().hash(_newItemModels));
+      const DeepCollectionEquality().hash(_newItemModels), newItemModel);
 
   /// Create a copy of NewsState
   /// with the given fields replaced by the non-null parameter values.
@@ -157,12 +180,15 @@ class _$InitialImpl implements _Initial {
 abstract class _Initial implements NewsState {
   const factory _Initial(
       {final bool isLoading,
-      final List<NewItemModel> newItemModels}) = _$InitialImpl;
+      final List<NewItemModel> newItemModels,
+      final NewItemModel? newItemModel}) = _$InitialImpl;
 
   @override
   bool get isLoading;
   @override
   List<NewItemModel> get newItemModels;
+  @override
+  NewItemModel? get newItemModel;
 
   /// Create a copy of NewsState
   /// with the given fields replaced by the non-null parameter values.

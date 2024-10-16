@@ -20,18 +20,21 @@ mixin _$ScreenType {
   TResult when<TResult extends Object?>({
     required TResult Function() loadingPage,
     required TResult Function(NewItemModel newItemModel) newsDetailPage,
+    required TResult Function() registerPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadingPage,
     TResult? Function(NewItemModel newItemModel)? newsDetailPage,
+    TResult? Function()? registerPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadingPage,
     TResult Function(NewItemModel newItemModel)? newsDetailPage,
+    TResult Function()? registerPage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$ScreenType {
   TResult map<TResult extends Object?>({
     required TResult Function(LoadingPageType value) loadingPage,
     required TResult Function(NewsDetailPageType value) newsDetailPage,
+    required TResult Function(RegisterPageType value) registerPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoadingPageType value)? loadingPage,
     TResult? Function(NewsDetailPageType value)? newsDetailPage,
+    TResult? Function(RegisterPageType value)? registerPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoadingPageType value)? loadingPage,
     TResult Function(NewsDetailPageType value)? newsDetailPage,
+    TResult Function(RegisterPageType value)? registerPage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -120,6 +126,7 @@ class _$LoadingPageTypeImpl implements LoadingPageType {
   TResult when<TResult extends Object?>({
     required TResult Function() loadingPage,
     required TResult Function(NewItemModel newItemModel) newsDetailPage,
+    required TResult Function() registerPage,
   }) {
     return loadingPage();
   }
@@ -129,6 +136,7 @@ class _$LoadingPageTypeImpl implements LoadingPageType {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadingPage,
     TResult? Function(NewItemModel newItemModel)? newsDetailPage,
+    TResult? Function()? registerPage,
   }) {
     return loadingPage?.call();
   }
@@ -138,6 +146,7 @@ class _$LoadingPageTypeImpl implements LoadingPageType {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadingPage,
     TResult Function(NewItemModel newItemModel)? newsDetailPage,
+    TResult Function()? registerPage,
     required TResult orElse(),
   }) {
     if (loadingPage != null) {
@@ -151,6 +160,7 @@ class _$LoadingPageTypeImpl implements LoadingPageType {
   TResult map<TResult extends Object?>({
     required TResult Function(LoadingPageType value) loadingPage,
     required TResult Function(NewsDetailPageType value) newsDetailPage,
+    required TResult Function(RegisterPageType value) registerPage,
   }) {
     return loadingPage(this);
   }
@@ -160,6 +170,7 @@ class _$LoadingPageTypeImpl implements LoadingPageType {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoadingPageType value)? loadingPage,
     TResult? Function(NewsDetailPageType value)? newsDetailPage,
+    TResult? Function(RegisterPageType value)? registerPage,
   }) {
     return loadingPage?.call(this);
   }
@@ -169,6 +180,7 @@ class _$LoadingPageTypeImpl implements LoadingPageType {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoadingPageType value)? loadingPage,
     TResult Function(NewsDetailPageType value)? newsDetailPage,
+    TResult Function(RegisterPageType value)? registerPage,
     required TResult orElse(),
   }) {
     if (loadingPage != null) {
@@ -254,6 +266,7 @@ class _$NewsDetailPageTypeImpl implements NewsDetailPageType {
   TResult when<TResult extends Object?>({
     required TResult Function() loadingPage,
     required TResult Function(NewItemModel newItemModel) newsDetailPage,
+    required TResult Function() registerPage,
   }) {
     return newsDetailPage(newItemModel);
   }
@@ -263,6 +276,7 @@ class _$NewsDetailPageTypeImpl implements NewsDetailPageType {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadingPage,
     TResult? Function(NewItemModel newItemModel)? newsDetailPage,
+    TResult? Function()? registerPage,
   }) {
     return newsDetailPage?.call(newItemModel);
   }
@@ -272,6 +286,7 @@ class _$NewsDetailPageTypeImpl implements NewsDetailPageType {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadingPage,
     TResult Function(NewItemModel newItemModel)? newsDetailPage,
+    TResult Function()? registerPage,
     required TResult orElse(),
   }) {
     if (newsDetailPage != null) {
@@ -285,6 +300,7 @@ class _$NewsDetailPageTypeImpl implements NewsDetailPageType {
   TResult map<TResult extends Object?>({
     required TResult Function(LoadingPageType value) loadingPage,
     required TResult Function(NewsDetailPageType value) newsDetailPage,
+    required TResult Function(RegisterPageType value) registerPage,
   }) {
     return newsDetailPage(this);
   }
@@ -294,6 +310,7 @@ class _$NewsDetailPageTypeImpl implements NewsDetailPageType {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LoadingPageType value)? loadingPage,
     TResult? Function(NewsDetailPageType value)? newsDetailPage,
+    TResult? Function(RegisterPageType value)? registerPage,
   }) {
     return newsDetailPage?.call(this);
   }
@@ -303,6 +320,7 @@ class _$NewsDetailPageTypeImpl implements NewsDetailPageType {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoadingPageType value)? loadingPage,
     TResult Function(NewsDetailPageType value)? newsDetailPage,
+    TResult Function(RegisterPageType value)? registerPage,
     required TResult orElse(),
   }) {
     if (newsDetailPage != null) {
@@ -323,6 +341,117 @@ abstract class NewsDetailPageType implements ScreenType {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$NewsDetailPageTypeImplCopyWith<_$NewsDetailPageTypeImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$RegisterPageTypeImplCopyWith<$Res> {
+  factory _$$RegisterPageTypeImplCopyWith(_$RegisterPageTypeImpl value,
+          $Res Function(_$RegisterPageTypeImpl) then) =
+      __$$RegisterPageTypeImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$RegisterPageTypeImplCopyWithImpl<$Res>
+    extends _$ScreenTypeCopyWithImpl<$Res, _$RegisterPageTypeImpl>
+    implements _$$RegisterPageTypeImplCopyWith<$Res> {
+  __$$RegisterPageTypeImplCopyWithImpl(_$RegisterPageTypeImpl _value,
+      $Res Function(_$RegisterPageTypeImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ScreenType
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$RegisterPageTypeImpl implements RegisterPageType {
+  const _$RegisterPageTypeImpl();
+
+  @override
+  String toString() {
+    return 'ScreenType.registerPage()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$RegisterPageTypeImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadingPage,
+    required TResult Function(NewItemModel newItemModel) newsDetailPage,
+    required TResult Function() registerPage,
+  }) {
+    return registerPage();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadingPage,
+    TResult? Function(NewItemModel newItemModel)? newsDetailPage,
+    TResult? Function()? registerPage,
+  }) {
+    return registerPage?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadingPage,
+    TResult Function(NewItemModel newItemModel)? newsDetailPage,
+    TResult Function()? registerPage,
+    required TResult orElse(),
+  }) {
+    if (registerPage != null) {
+      return registerPage();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(LoadingPageType value) loadingPage,
+    required TResult Function(NewsDetailPageType value) newsDetailPage,
+    required TResult Function(RegisterPageType value) registerPage,
+  }) {
+    return registerPage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(LoadingPageType value)? loadingPage,
+    TResult? Function(NewsDetailPageType value)? newsDetailPage,
+    TResult? Function(RegisterPageType value)? registerPage,
+  }) {
+    return registerPage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LoadingPageType value)? loadingPage,
+    TResult Function(NewsDetailPageType value)? newsDetailPage,
+    TResult Function(RegisterPageType value)? registerPage,
+    required TResult orElse(),
+  }) {
+    if (registerPage != null) {
+      return registerPage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class RegisterPageType implements ScreenType {
+  const factory RegisterPageType() = _$RegisterPageTypeImpl;
 }
 
 /// @nodoc

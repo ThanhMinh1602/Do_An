@@ -1,4 +1,4 @@
-import 'package:do_an_flutter/core/components/circle_gradient_blur.dart';
+import 'package:do_an_flutter/core/components/blur/circle_gradient_blur.dart';
 import 'package:do_an_flutter/core/components/text/gradient_text.dart';
 import 'package:do_an_flutter/core/constants/app_color.dart';
 import 'package:do_an_flutter/core/constants/app_style.dart';

@@ -5,28 +5,34 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class CustomTabBar extends StatelessWidget {
   final TabController controller;
   final List<String> tabs;
+  final double? width;
+  final double? height;
+  final double? borderRadius;
 
   const CustomTabBar({
     super.key,
     required this.controller,
     required this.tabs,
+    this.width,
+    this.height,
+    this.borderRadius,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 280.0.w,
-      height: 44.0.h,
+      width: width ?? 280.0.w,
+      height: height ?? 44.0.h,
       padding: EdgeInsets.all(4.0.w),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(22.0.r),
+        borderRadius: BorderRadius.circular(borderRadius ?? 22.0.r),
         color: AppColor.c_111D1B,
       ),
       child: TabBar(
         controller: controller,
         indicatorSize: TabBarIndicatorSize.tab,
         indicator: BoxDecoration(
-          borderRadius: BorderRadius.circular(22.0.r),
+          borderRadius: BorderRadius.circular(borderRadius ?? 22.0.r),
           gradient: AppColor.buildGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,

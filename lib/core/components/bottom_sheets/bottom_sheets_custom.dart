@@ -1,3 +1,4 @@
+import 'package:do_an_flutter/core/components/pop_up_header.dart';
 import 'package:do_an_flutter/core/constants/app_color.dart';
 import 'package:do_an_flutter/core/constants/app_style.dart';
 import 'package:do_an_flutter/core/utils/spaces.dart';
@@ -16,35 +17,7 @@ class BottomSheetsCustom {
             ),
             child: Wrap(
               children: [
-                Padding(
-                    padding: EdgeInsets.symmetric(
-                        vertical: 20.0.h, horizontal: 24.0.w),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        spaceW24,
-                        Text('Connect a wallet',
-                            style: AppStyle.semibold_20.copyWith(shadows: [
-                              BoxShadow(
-                                  offset: Offset(0, 4),
-                                  blurRadius: 30,
-                                  spreadRadius: 0,
-                                  color: AppColor.c_DC349E.withOpacity(0.5))
-                            ])),
-                        InkWell(
-                          onTap: () => Navigator.of(context).pop(),
-                          child: Icon(
-                            Icons.close,
-                            size: 24.0.w,
-                            color: AppColor.whiteColor,
-                          ),
-                        )
-                      ],
-                    )),
-                Divider(
-                  color: AppColor.whiteColor.withOpacity(0.1),
-                  height: 1,
-                ),
+                const PopUpHeader(),
                 Padding(padding: EdgeInsets.all(24.0.w), child: child)
               ],
             ),

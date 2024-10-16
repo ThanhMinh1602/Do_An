@@ -1,3 +1,4 @@
+
 import 'package:do_an_flutter/core/constants/app_color.dart';
 import 'package:do_an_flutter/core/utils/font_weight.dart';
 import 'package:do_an_flutter/core/utils/spaces.dart';
@@ -6,8 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-class DtFooterWidget extends StatelessWidget {
-  const DtFooterWidget({super.key});
+class MobileFooterCustom extends StatelessWidget {
+  const MobileFooterCustom({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +25,8 @@ class DtFooterWidget extends StatelessWidget {
           ),
           spaceH32,
           const FooterLinks(),
+          spaceH32,
+          const SocialIcons(),
           spaceH24,
           Divider(color: AppColor.whiteColor.withOpacity(0.1)),
           spaceH24,
@@ -74,6 +77,30 @@ class FooterLinkText extends StatelessWidget {
         fontSize: 16.0.sp,
         color: AppColor.whiteColor,
         fontWeight: medium,
+      ),
+    );
+  }
+}
+
+class SocialIcons extends StatelessWidget {
+  const SocialIcons({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 236.h,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          SvgPicture.asset(Assets.icons.fbIcon, width: 32.0.w, height: 32.0.h),
+          SvgPicture.asset(Assets.icons.instagramIcon,
+              width: 32.0.w, height: 32.0.h),
+          SvgPicture.asset(Assets.icons.telegramIcon,
+              width: 32.0.w, height: 32.0.h),
+          SvgPicture.asset(Assets.icons.xIcon, width: 32.0.w, height: 32.0.h),
+          SvgPicture.asset(Assets.icons.mediumIcon,
+              width: 32.0.w, height: 32.0.h),
+        ],
       ),
     );
   }

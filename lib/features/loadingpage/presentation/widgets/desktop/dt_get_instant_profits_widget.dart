@@ -1,45 +1,43 @@
 import 'dart:async';
-
-import 'package:do_an_flutter/core/components/button/page_navigation_button.dart';
+import 'package:do_an_flutter/core/components/blur/circle_blue_blur.dart';
+import 'package:do_an_flutter/core/components/blur/circle_pink_blur.dart';
+import 'package:do_an_flutter/core/components/blur/rectangle_blur.dart';
 import 'package:do_an_flutter/core/components/card/model/information.dart';
-import 'package:do_an_flutter/core/components/circle_gradient_blur.dart';
-import 'package:do_an_flutter/core/components/container_custom_paint.dart';
-import 'package:do_an_flutter/core/components/page_indicator_custom.dart';
 import 'package:do_an_flutter/core/components/text/gradient_text.dart';
 import 'package:do_an_flutter/core/constants/app_color.dart';
 import 'package:do_an_flutter/core/constants/app_style.dart';
-import 'package:do_an_flutter/core/utils/spaces.dart';
-import 'package:do_an_flutter/features/loadingpage/presentation/widgets/mobile/explore_button.dart';
+import 'package:do_an_flutter/core/extensions/builder_context_extension.dart';
+import 'package:do_an_flutter/features/loadingpage/presentation/widgets/desktop/dt_explore_button.dart';
 import 'package:do_an_flutter/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-// ignore: must_be_immutable
 class DtGetInstantProfitsWidget extends StatefulWidget {
   const DtGetInstantProfitsWidget({super.key});
 
   @override
   State<DtGetInstantProfitsWidget> createState() =>
-      _GetInstantProfitsWidgetState();
+      _DtGetInstantProfitsWidgetState();
 }
 
-class _GetInstantProfitsWidgetState extends State<DtGetInstantProfitsWidget> {
-  late PageController pageController;
-  late Timer timer;
-  int currentPage = 0;
+class _DtGetInstantProfitsWidgetState extends State<DtGetInstantProfitsWidget> {
+  late PageController _pageController;
+  late Timer _timer;
+  int _currentPage = 0;
+
   @override
   void initState() {
     super.initState();
-    pageController = PageController(initialPage: 0);
-    timer = Timer.periodic(const Duration(seconds: 3), (Timer timer) {
-      if (currentPage < instantProfits.length - 1) {
-        currentPage++;
+    _pageController = PageController(initialPage: 0);
+    _timer = Timer.periodic(const Duration(seconds: 3), (Timer timer) {
+      if (_currentPage < instantProfits.length - 1) {
+        _currentPage++;
       } else {
-        currentPage = 0;
+        _currentPage = 0;
       }
-      pageController.animateToPage(
-        currentPage,
+      _pageController.animateToPage(
+        _currentPage,
         duration: const Duration(milliseconds: 500),
         curve: Curves.easeInOut,
       );
@@ -48,128 +46,122 @@ class _GetInstantProfitsWidgetState extends State<DtGetInstantProfitsWidget> {
 
   @override
   void dispose() {
-    timer.cancel();
-    pageController.dispose();
+    _timer.cancel();
+    _pageController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    final double screenWidth = MediaQuery.of(context).size.width;
-    final double screenHeight = MediaQuery.of(context).size.height;
-
     return SizedBox(
-      height: screenHeight,
-      width: screenWidth,
+      height: 727.0,
+      width: context.getWidth,
       child: PageView.builder(
-          controller: pageController,
-          itemCount: instantProfits.length,
-          itemBuilder: (context, index) {
-            return _buildPageWidget(
-                screenWidth: screenWidth,
-                screenHeight: screenHeight,
-                imagePath: instantProfits[index].imagePath,
-                title: instantProfits[index].title,
-                content: instantProfits[index].content);
-          }),
-    );
-  }
-
-  Widget _buildPageWidget(
-      {required double screenWidth,
-      required double screenHeight,
-      required String imagePath,
-      required String title,
-      required String content}) {
-    return Container(
-      padding: EdgeInsets.only(top: 46.0.h),
-      child: Stack(
-        children: [
-          Positioned(
-            top: 162.87.h,
-            left: 0,
-            right: 0,
-            child: const CircleGradientBlur(),
-          ),
-          Positioned(
-            left: 0,
-            right: 0,
-            child: Column(
-              children: [
-                GradientText(
-                  text: "Get Instant Profits At",
-                  style: AppStyle.textHeader,
-                  gradient: AppColor.buildGradient(),
-                ),
-                spaceH12,
-                SvgPicture.asset(
-                  Assets.images.metamaskSeeklogo,
-                  width: 203.66.w,
-                ),
-                spaceH24,
-                Image.asset(
-                  imagePath,
-                  width: 358.0.w,
-                  height: 242.h,
-                  fit: BoxFit.fill,
-                )
-              ],
-            ),
-          ),
-          Positioned(
-            bottom: 0,
-            left: 0,
-            right: 0,
-            child: ContainerCustomPaint(
-              width: screenWidth,
-              height: (screenHeight < 700)
-                  ? screenHeight * 0.56
-                  : screenHeight * 0.5,
-              child: Row(
-                children: [
-                  const PageNavigationButton(),
-                  spaceW30,
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        spaceH36,
-                        Text(title,
-                            textAlign: TextAlign.center,
-                            style: (screenHeight < 700)
-                                ? AppStyle.semibold_20
-                                : AppStyle.textTitle),
-                        SizedBox(height: 8.0.h),
-                        Text(
-                          content,
-                          textAlign: TextAlign.center,
-                          style: (screenHeight < 700)
-                              ? AppStyle.textContentScreenHeight700
-                              : AppStyle.regular_14,
-                        ),
-                        const Spacer(),
-                        PageIndicatorCustom(
-                          pageController: pageController,
-                          count: instantProfits.length,
-                        ),
-                        spaceH24,
-                        ExploreButton(
-                          onTap: () {},
-                        ),
-                        SizedBox(height: 52.0.h)
-                      ],
-                    ),
-                  ),
-                  spaceW30,
-                  const PageNavigationButton(
-                    isRight: true,
-                  ),
-                ],
-              ),
-            ),
-          )
-        ],
+        controller: _pageController,
+        itemCount: instantProfitsDesktop.length,
+        itemBuilder: (context, index) {
+          final item = instantProfitsDesktop[index];
+          return _PageWidget(
+            screenWidth: context.getWidth,
+            screenHeight: context.getHeight,
+            imagePath: item.imagePath,
+            title: item.title,
+            content: item.content,
+          );
+        },
       ),
     );
   }
+}
+
+class _PageWidget extends StatelessWidget {
+  const _PageWidget({
+    required this.screenWidth,
+    required this.screenHeight,
+    required this.imagePath,
+    required this.title,
+    required this.content,
+  });
+
+  final double screenWidth;
+  final double screenHeight;
+  final String imagePath;
+  final String title;
+  final String content;
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        Positioned(
+          left: 208.0,
+          right: 208.0,
+          child: Column(
+            children: [
+              const SizedBox(height: 64),
+              GradientText(
+                text: "Get Instant Profits At",
+                style: AppStyle.bold_36,
+                gradient: AppColor.buildGradient(),
+              ),
+              const SizedBox(height: 12.0),
+              SvgPicture.asset(
+                Assets.images.metamaskSeeklogo,
+                width: 286.37,
+              ),
+              const SizedBox(height: 24.0),
+              _buildMainContent(
+                  imagePath: imagePath, title: title, content: content),
+            ],
+          ),
+        ),
+        const Positioned(bottom: -180, right: -120, child: RectangleBlur()),
+      ],
+    );
+  }
+}
+
+Widget _buildMainContent({
+  required String imagePath,
+  required String title,
+  required String content,
+}) {
+  return SizedBox(
+    width: 1024.0,
+    height: 527,
+    child: Row(
+      children: [
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.only(left: 100, top: 72),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: AppStyle.semibold_28,
+                ),
+                const SizedBox(height: 24.0),
+                Text(
+                  content,
+                  style: AppStyle.regular_20,
+                ),
+                const SizedBox(height: 40),
+                const Align(
+                  alignment: Alignment.centerLeft,
+                  child: DtExploreButton(),
+                ),
+              ],
+            ),
+          ),
+        ),
+        Image.asset(
+          imagePath,
+          width: 559.w,
+          height: 527.h,
+          fit: BoxFit.fill,
+        ),
+      ],
+    ),
+  );
 }

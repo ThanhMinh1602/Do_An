@@ -1,6 +1,7 @@
 import 'package:do_an_flutter/features/loadingpage/presentation/page/loading_page.dart';
 import 'package:do_an_flutter/features/news/data/models/new_item_model.dart';
 import 'package:do_an_flutter/features/news_detail/presentation/page/news_detail_page.dart';
+import 'package:do_an_flutter/features/register/presentation/page/register_page.dart';
 import 'package:flutter/widgets.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:page_transition/page_transition.dart';
@@ -33,7 +34,7 @@ class AppNavigator {
       Alignment? alignment}) async {
     return _getNavigator(type: type).push<T>(
       PageTransition(
-        type: pageTransitionType ?? PageTransitionType.rightToLeft,
+        type: pageTransitionType ?? PageTransitionType.fade,
         alignment: alignment,
         child: ScreenTypeHelper.page(screen),
       ),

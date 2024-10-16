@@ -11,7 +11,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 
 class ArbitragePlatform extends StatelessWidget {
-  const ArbitragePlatform({super.key});
+  final Function onTapJoinNow;
+  const ArbitragePlatform({super.key, required this.onTapJoinNow});
 
   @override
   Widget build(BuildContext context) {
@@ -133,7 +134,7 @@ class ArbitragePlatform extends StatelessWidget {
         spaceH8,
         ExploreButton(
           title: 'Join Now',
-          onTap: () {},
+          onTap: onTapJoinNow,
         )
       ],
     );

@@ -1,4 +1,5 @@
 import 'package:do_an_flutter/core/components/bottom_sheets/bottom_sheets_custom.dart';
+import 'package:do_an_flutter/core/components/button/connect_wallet_button_custom.dart';
 import 'package:do_an_flutter/core/components/button/custom_button.dart';
 import 'package:do_an_flutter/core/constants/app_color.dart';
 import 'package:do_an_flutter/core/constants/app_style.dart';
@@ -48,22 +49,23 @@ class AppBarMobile extends StatelessWidget implements PreferredSizeWidget {
                   context,
                   child: Column(
                     children: [
-                      _buildWalletButton(
+                      ConnectWalletButtonCustom(
                         iconPath: Assets.icons.metamaskIconSvg,
                         text: 'Metamask',
+                        
                       ),
                       spaceH12,
-                      _buildWalletButton(
+                      ConnectWalletButtonCustom(
                         iconPath: Assets.icons.trustIconSvg,
                         text: 'Trust Wallet',
                       ),
                       spaceH12,
-                      _buildWalletButton(
+                      ConnectWalletButtonCustom(
                         iconPath: Assets.icons.safepalIconSvg,
                         text: 'Safepal',
                       ),
                       spaceH12,
-                      _buildWalletButton(
+                      ConnectWalletButtonCustom(
                         iconPath: Assets.icons.walletconnectIconSvg,
                         text: 'WalletConnect',
                       ),
@@ -79,36 +81,4 @@ class AppBarMobile extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Size get preferredSize => const Size(double.infinity, 64.0);
-
-  Widget _buildWalletButton({
-    void Function()? onTap,
-    required String iconPath,
-    required String text,
-  }) {
-    return OutlineGradientButton(
-      onTap: onTap,
-      strokeWidth: 1.0,
-      radius: Radius.circular(12.0.r),
-      padding: EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 12.0.h),
-      gradient: AppColor.buildGradient(opacity: 0.2),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          SvgPicture.asset(
-            iconPath,
-            width: 32.0.w,
-            height: 32.0.h,
-          ),
-          Text(
-            text,
-            style: AppStyle.semibold_16,
-          ),
-          SizedBox(
-            width: 32.0.w,
-            height: 32.0.h,
-          ),
-        ],
-      ),
-    );
-  }
 }
