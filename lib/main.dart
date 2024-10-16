@@ -1,6 +1,5 @@
 import 'package:do_an_flutter/core/constants/app_color.dart';
 import 'package:do_an_flutter/core/extensions/builder_context_extension.dart';
-import 'package:do_an_flutter/features/dashboard/presentation/page/dashboard_page.dart';
 import 'package:do_an_flutter/features/loadingpage/presentation/page/loading_page.dart';
 import 'package:do_an_flutter/features/main/presentation/page/main_page.dart';
 
@@ -32,7 +31,7 @@ class MyApp extends StatelessWidget {
             useMaterial3: true,
             textTheme: GoogleFonts.robotoTextTheme(),
           ),
-          home: const DashboardPage(),
+          home: const MainPage(),
         );
       },
     );

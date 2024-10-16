@@ -5,7 +5,6 @@ import 'package:do_an_flutter/core/components/bottombar/bottom_bar_custom.dart';
 import 'package:do_an_flutter/core/components/button/custom_button.dart';
 import 'package:do_an_flutter/core/components/card/gradient_container_custom.dart';
 import 'package:do_an_flutter/core/components/gradient_icon_custom.dart';
-import 'package:do_an_flutter/core/components/text/gradient_text.dart';
 import 'package:do_an_flutter/core/constants/app_style.dart';
 import 'package:do_an_flutter/core/utils/dimensions.dart';
 import 'package:do_an_flutter/core/utils/format_string_utils.dart';
@@ -74,112 +73,57 @@ class _DashboardWidgetState extends State<DashboardWidget> {
       appBar: AppBarMobile(context),
       bottomNavigationBar: _buildCoinPriceBottomBar(),
       body: BackgroundCustom(
-          child: ListView(
+        child: ListView(
+          padding:
+              EdgeInsets.symmetric(horizontal: Dimensions.paddingHorizontal),
+          children: [
+            _buildHeader(),
+            spaceH24,
+            _buildListHoriz(),
+            spaceH24,
+            _buildRowChart(context),
+            spaceH24,
+            _buildMyStatistics(),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildHeader() {
+    return Padding(
+      padding: EdgeInsets.symmetric(
+        vertical: Dimensions.paddingVertical,
+      ),
+      child: Row(
         children: [
-          Padding(
-            padding:
-                EdgeInsets.symmetric(horizontal: Dimensions.paddingHorizontal)
-                    .copyWith(
-              top: Dimensions.paddingVertical,
-            ),
-            child: Row(
-              children: [
-                CircleAvatar(
-                  radius: 24.0.w,
-                  backgroundImage: const NetworkImage(
-                      'https://cdn.pixabay.com/photo/2023/10/24/14/59/woman-8338390_1280.jpg'),
-                ),
-                spaceW12,
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Welcome',
-                      style: AppStyle.regular_16,
-                    ),
-                    spaceH2,
-                    Text(
-                      FormatStringUtils.shortenString('0Xd3hdfgjajf36f7',
-                          selectQuantityNumber: 3),
-                      style: AppStyle.bold_24,
-                    ),
-                    spaceW12,
-                  ],
-                ),
-                const Spacer(),
-                CustomButton(
-                  btnTxt: 'Top Up',
-                  width: 90.w,
-                  height: 36.h,
-                )
-              ],
-            ),
+          CircleAvatar(
+            radius: 24.0.w,
+            backgroundImage: const NetworkImage(
+                'https://cdn.pixabay.com/photo/2023/10/24/14/59/woman-8338390_1280.jpg'),
           ),
-          spaceH24,
-          _buildListHoriz(),
-          spaceH24,
-          _buildRowChart(context),
-          spaceH24,
-          Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: Dimensions.paddingHorizontal,
-            ),
-            child: GradientText(
-              textAlign: TextAlign.start,
-              text: 'My Statistics',
-              gradient: AppColor.buildGradient(),
-              style: AppStyle.semibold_28,
-            ),
+          spaceW12,
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('Welcome', style: AppStyle.regular_16),
+              spaceH2,
+              Text(
+                FormatStringUtils.shortenString('0Xd3hdfgjajf36f7',
+                    selectQuantityNumber: 3),
+                style: AppStyle.bold_24,
+              ),
+              spaceW12,
+            ],
           ),
-          spaceH24,
-          ListView.separated(
-            padding:
-                EdgeInsets.symmetric(horizontal: Dimensions.paddingHorizontal),
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            itemCount: 10,
-            separatorBuilder: (_, __) => spaceH12,
-            itemBuilder: (context, index) {
-              return GradientContainerCustom(
-                  gradient: AppColor.buildGradient(opacity: 0.1),
-                  borderRadius: BorderRadius.circular(54.r),
-                  padding: EdgeInsets.all(16.0.w),
-                  child: Row(
-                    children: [
-                      CircleAvatar(
-                        radius: 20.h,
-                        backgroundImage:
-                            AssetImage(Assets.icons.totalTopUpIconPng.path),
-                      ),
-                      spaceW10,
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text('Total Top Up', style: AppStyle.semibold_16),
-                            spaceH2,
-                            Text(
-                              'USDT',
-                              style: AppStyle.regular_14
-                                  .copyWith(color: AppColor.grey500),
-                            ),
-                          ],
-                        ),
-                      ),
-                      spaceW8,
-                      Text('12.397.45', style: AppStyle.semibold_20),
-                      spaceW8,
-                      CircleAvatar(
-                        radius: 8.0.h,
-                        backgroundColor: AppColor.whiteColor,
-                        backgroundImage: AssetImage(Assets.icons.coinIcon.path),
-                      )
-                    ],
-                  ));
-            },
+          const Spacer(),
+          CustomButton(
+            btnTxt: 'Top Up',
+            width: 90.w,
+            height: 36.h,
           )
         ],
-      )),
+      ),
     );
   }
 
@@ -227,7 +171,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
     );
   }
 
-  Padding _buildRowChart(BuildContext context) {
+  Widget _buildRowChart(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(
         horizontal: Dimensions.paddingHorizontal,
@@ -257,19 +201,10 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                 ),
               )),
               spaceW12,
-              GradientIconCustom(
-                iconPath: Assets.icons.copyIconSvg,
-                borderRadius: 10.0.r,
-                width: 40.h,
-                height: 40.h,
-              ),
-              spaceW12,
-              GradientIconCustom(
-                iconPath: Assets.icons.shareIconSvg,
-                borderRadius: 10.0.r,
-                width: 40.h,
-                height: 40.h,
-              ),
+              ...[
+                _buildIconButton(Assets.icons.copyIconSvg),
+                _buildIconButton(Assets.icons.shareIconSvg),
+              ],
             ],
           ),
           spaceH24,
@@ -278,23 +213,27 @@ class _DashboardWidgetState extends State<DashboardWidget> {
             height: 190.h,
             child: Row(
               children: [
-                _buildCardChart(context,
-                    svgChartPath: Assets.images.chart1,
-                    title: 'Daily Funds Cap (USDT)',
-                    subTitle: '12.397.45',
-                    colors: [
-                      AppColor.c_31D0D0.withOpacity(0.3),
-                      AppColor.c_31D0D0.withOpacity(0.05),
-                    ]),
+                _buildCardChart(
+                  context,
+                  svgChartPath: Assets.images.chart1,
+                  title: 'Daily Funds Cap (USDT)',
+                  subTitle: '12.397.45',
+                  colors: [
+                    AppColor.c_31D0D0.withOpacity(0.3),
+                    AppColor.c_31D0D0.withOpacity(0.05),
+                  ],
+                ),
                 spaceW12,
-                _buildCardChart(context,
-                    svgChartPath: Assets.images.chart2,
-                    title: 'Total Funds Cap (USDT)',
-                    subTitle: '307.45',
-                    colors: [
-                      AppColor.c_DC349E.withOpacity(0.3),
-                      AppColor.c_DC349E.withOpacity(0.05),
-                    ]),
+                _buildCardChart(
+                  context,
+                  svgChartPath: Assets.images.chart2,
+                  title: 'Total Funds Cap (USDT)',
+                  subTitle: '307.45',
+                  colors: [
+                    AppColor.c_DC349E.withOpacity(0.3),
+                    AppColor.c_DC349E.withOpacity(0.05),
+                  ],
+                ),
               ],
             ),
           )
@@ -303,40 +242,52 @@ class _DashboardWidgetState extends State<DashboardWidget> {
     );
   }
 
+  Widget _buildIconButton(String iconPath) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 6.0.w),
+      child: GradientIconCustom(
+        iconPath: iconPath,
+        borderRadius: 10.0.r,
+        width: 40.h,
+        height: 40.h,
+      ),
+    );
+  }
+
   SizedBox _buildListHoriz() {
     return SizedBox(
       height: 100.h,
       child: ListView.separated(
-        padding: EdgeInsets.symmetric(horizontal: Dimensions.paddingHorizontal),
         scrollDirection: Axis.horizontal,
         itemCount: 5,
         separatorBuilder: (_, __) => spaceW12,
         itemBuilder: (context, index) {
           return GradientContainerCustom(
-              width: 160.w,
-              padding: EdgeInsets.all(16.0.w),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      CircleAvatar(
-                        radius: 8.0.w,
-                        backgroundImage: const NetworkImage(
-                            'https://cdn.pixabay.com/photo/2024/09/23/23/38/piggy-bank-9070156_960_720.jpg'),
-                      ),
-                      spaceW8,
-                      Text('POL'.toUpperCase(),
-                          style: AppStyle.regular_14
-                              .copyWith(color: AppColor.whiteColor))
-                    ],
-                  ),
-                  spaceH6,
-                  Text('12.397.45', style: AppStyle.semibold_20),
-                  spaceH2,
-                  Text('\$543,54', style: AppStyle.regular_14),
-                ],
-              ));
+            width: 160.w,
+            padding: EdgeInsets.all(16.0.w),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    CircleAvatar(
+                      radius: 8.0.w,
+                      backgroundImage: const NetworkImage(
+                          'https://cdn.pixabay.com/photo/2024/09/23/23/38/piggy-bank-9070156_960_720.jpg'),
+                    ),
+                    spaceW8,
+                    Text('POL'.toUpperCase(),
+                        style: AppStyle.regular_14
+                            .copyWith(color: AppColor.whiteColor))
+                  ],
+                ),
+                spaceH6,
+                Text('12.397.45', style: AppStyle.semibold_20),
+                spaceH2,
+                Text('\$543,54', style: AppStyle.regular_14),
+              ],
+            ),
+          );
         },
       ),
     );
@@ -390,6 +341,54 @@ class _DashboardWidgetState extends State<DashboardWidget> {
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildMyStatistics() {
+    return ListView.separated(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      itemCount: 10,
+      separatorBuilder: (_, __) => spaceH12,
+      itemBuilder: (context, index) {
+        return GradientContainerCustom(
+          gradient: AppColor.buildGradient(opacity: 0.1),
+          borderRadius: BorderRadius.circular(54.r),
+          padding: EdgeInsets.all(16.0.w),
+          child: Row(
+            children: [
+              CircleAvatar(
+                radius: 20.h,
+                backgroundImage:
+                    AssetImage(Assets.icons.totalTopUpIconPng.path),
+              ),
+              spaceW10,
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Total Top Up', style: AppStyle.semibold_16),
+                    spaceH2,
+                    Text(
+                      'USDT',
+                      style:
+                          AppStyle.regular_14.copyWith(color: AppColor.grey500),
+                    ),
+                  ],
+                ),
+              ),
+              spaceW8,
+              Text('12.397.45', style: AppStyle.semibold_20),
+              spaceW8,
+              CircleAvatar(
+                radius: 8.0.h,
+                backgroundColor: AppColor.whiteColor,
+                backgroundImage: AssetImage(Assets.icons.coinIcon.path),
+              )
+            ],
+          ),
+        );
+      },
     );
   }
 }
