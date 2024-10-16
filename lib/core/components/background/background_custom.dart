@@ -12,7 +12,7 @@ class BackgroundCustom extends StatelessWidget {
     return Stack(children: [
       CircleBlueBlur(top: context.getHeight * -0.4),
       CirclePinkBlur(top: context.getHeight * 0.4),
-      child
+      Positioned.fill(child: child)
     ]);
   }
 }

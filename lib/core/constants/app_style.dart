@@ -42,7 +42,16 @@ class AppStyle {
     fontWeight: regular,
     color: AppColor.grey300,
   );
-
+  static TextStyle regular_18 = TextStyle(
+    fontSize: 18.0.sp,
+    fontWeight: regular,
+    color: AppColor.grey300,
+  );
+  static TextStyle regular_16 = TextStyle(
+    fontSize: 16.0.sp,
+    fontWeight: regular,
+    color: AppColor.grey300,
+  );
   static TextStyle regular_14 = TextStyle(
     fontSize: 14.0.sp,
     fontWeight: regular,
@@ -86,6 +95,11 @@ class AppStyle {
   );
 
   static TextStyle semibold_14 = TextStyle(
+    fontSize: 14.0.sp,
+    fontWeight: semibold,
+    color: AppColor.whiteColor,
+  );
+  static TextStyle semibold_12 = TextStyle(
     fontSize: 14.0.sp,
     fontWeight: semibold,
     color: AppColor.whiteColor,

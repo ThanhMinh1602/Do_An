@@ -1,5 +1,6 @@
 import 'package:do_an_flutter/core/constants/app_color.dart';
 import 'package:do_an_flutter/core/utils/dimensions.dart';
+import 'package:do_an_flutter/core/utils/font_weight.dart';
 import 'package:do_an_flutter/core/utils/spaces.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -47,29 +48,12 @@ class CustomButton extends StatelessWidget {
           padding: margin ?? const EdgeInsets.all(0),
           child: Container(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(borderRadius),
-              border: GradientBoxBorder(
-                gradient: borderGradient ??
-                    LinearGradient(
-                      colors: [
-                        AppColor.c_31D0D0.withOpacity(0.3),
-                        AppColor.c_DC349E.withOpacity(0.3),
-                      ],
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                    ),
-                width: borderWidth,
-              ),
-              gradient: gradient ??
-                  LinearGradient(
-                    colors: [
-                      AppColor.c_31D0D0.withOpacity(0.1),
-                      AppColor.c_DC349E.withOpacity(0.1),
-                    ],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                  ),
-            ),
+                borderRadius: BorderRadius.circular(borderRadius),
+                border: GradientBoxBorder(
+                  gradient: borderGradient ?? AppColor.buildGradient(),
+                  width: borderWidth,
+                ),
+                gradient: gradient ?? AppColor.buildGradient()),
             child: TextButton(
               onPressed: onTap as void Function()?,
               style: TextButton.styleFrom(
@@ -86,9 +70,9 @@ class CustomButton extends StatelessWidget {
                     btnTxt ?? '',
                     style: textStyle ??
                         Theme.of(context).textTheme.displaySmall!.copyWith(
-                              color: Colors.white,
-                              fontSize: Dimensions.fontSizeLarge,
-                            ),
+                            color: Colors.white,
+                            fontSize: Dimensions.fontSizeLarge,
+                            fontWeight: semibold),
                   ),
                   spaceW2,
                   if (icon != null) ...[

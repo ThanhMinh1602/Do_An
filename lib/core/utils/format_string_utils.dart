@@ -5,4 +5,13 @@ class FormatStringUtils {
     final seconds = twoDigits(duration.inSeconds.remainder(60));
     return '${duration.inHours > 0 ? '${twoDigits(duration.inHours)}:' : ''}$minutes:$seconds';
   }
+
+  static String shortenString(String input) {
+    if (input.length <= 12) {
+      return input;
+    }
+    String start = input.substring(0, 6);
+    String end = input.substring(input.length - 6);
+    return '$start...$end';
+  }
 }

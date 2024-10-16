@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'Galaxy Web3',
           theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+            colorScheme: ColorScheme.fromSeed(seedColor: AppColor.primaryColor),
             useMaterial3: true,
             textTheme: GoogleFonts.robotoTextTheme(),
           ),
