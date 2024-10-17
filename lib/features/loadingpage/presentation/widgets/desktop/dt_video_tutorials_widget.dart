@@ -4,7 +4,6 @@ import 'package:do_an_flutter/core/constants/app_color.dart';
 import 'package:do_an_flutter/core/constants/app_style.dart';
 import 'package:do_an_flutter/core/utils/font_weight.dart';
 import 'package:do_an_flutter/core/utils/format_string_utils.dart';
-import 'package:do_an_flutter/core/utils/spaces.dart';
 import 'package:do_an_flutter/features/loadingpage/presentation/cubit/loading_cubit.dart';
 import 'package:do_an_flutter/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
@@ -51,7 +50,7 @@ class _VideoTutorialsWidgetState extends State<DtVideoTutorialsWidget> {
             children: [
               GradientText(
                 text: "Galaxy Video Tutorials",
-                style: AppStyle.bold_36,
+                style: DesktopAppStyle.boldStyle_36,
                 gradient: AppColor.buildGradient(),
               ),
               const SizedBox(height: 24.0),
@@ -151,7 +150,7 @@ class _VideoTutorialsWidgetState extends State<DtVideoTutorialsWidget> {
               return Text(
                 '${FormatStringUtils.formatDurationVideo(value.position)} / ${FormatStringUtils.formatDurationVideo(value.duration)}',
                 style: const TextStyle(
-                  fontSize: 10.0, 
+                  fontSize: 10.0,
                   fontWeight: medium,
                   color: AppColor.whiteColor,
                 ),

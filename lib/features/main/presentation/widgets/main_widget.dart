@@ -24,11 +24,11 @@ class MainWidget extends StatelessWidget {
       builder: (context, state) {
         return Scaffold(
           backgroundColor: AppColor.backgroundColor,
-          appBar: context.isDesktop
-              ? AppBarDesktop(
-                  pageIndex: state.pageIndex,
-                )
-              : AppBarMobile(context),
+          // appBar: context.isDesktop
+          //     ? AppBarDesktop(
+          //         pageIndex: state.pageIndex,
+          //       )
+          //     : AppBarMobile(context),
           drawer: Drawer(
             backgroundColor: AppColor.grey900,
             shape: RoundedRectangleBorder(
@@ -42,15 +42,27 @@ class MainWidget extends StatelessWidget {
               ],
             ),
           ),
-          body: IndexedStack(
-            index: state.pageIndex,
+          body: Stack(
             children: [
-              const LoadingPage(),
-              Container(color: Colors.blue),
-              Container(color: Colors.amber),
-              Container(color: Colors.green),
-              const NewsPage(),
-              Container(color: Colors.pink),
+              IndexedStack(
+                index: state.pageIndex,
+                children: [
+                  const LoadingPage(),
+                  Container(color: Colors.blue),
+                  Container(color: Colors.amber),
+                  Container(color: Colors.green),
+                  const NewsPage(),
+                  Container(color: Colors.pink),
+                ],
+              ),
+              Positioned(
+                top: 0,
+                left: 0,
+                right: 0,
+                child: AppBarDesktop(
+                  pageIndex: state.pageIndex,
+                ),
+              ),
             ],
           ),
         );

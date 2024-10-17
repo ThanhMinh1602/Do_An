@@ -1,4 +1,5 @@
 import 'package:do_an_flutter/core/constants/app_color.dart';
+import 'package:do_an_flutter/core/constants/app_style.dart';
 import 'package:do_an_flutter/core/extensions/builder_context_extension.dart';
 import 'package:do_an_flutter/features/dashboard/presentation/page/dashboard_page.dart';
 import 'package:do_an_flutter/features/dashboard/presentation/widgets/trade_table_widget.dart';
@@ -36,9 +37,9 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             colorScheme: ColorScheme.fromSeed(seedColor: AppColor.primaryColor),
             useMaterial3: true,
-            textTheme: GoogleFonts.robotoTextTheme(),
+            fontFamily: 'FSProDisplay',
           ),
-          home: const DashboardPage(),
+          home: const MainPage(),
         );
       },
     );
@@ -51,10 +52,51 @@ class TestWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColor.blackColor.withOpacity(0.7),
-      body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0),
-          child: TradeTableWidget()),
+      backgroundColor: Colors.white,
+      body: Center(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Weight: 100w',
+              style: TextStyle(fontSize: 50, fontWeight: FontWeight.w100),
+            ),
+            Text(
+              'Weight: 200',
+              style: TextStyle(fontSize: 50, fontWeight: FontWeight.w200),
+            ),
+            Text(
+              'Weight: 300',
+              style: TextStyle(fontSize: 50, fontWeight: FontWeight.w300),
+            ),
+            Text(
+              'Weight: 400 (Normal)',
+              style: TextStyle(fontSize: 50, fontWeight: FontWeight.w400),
+            ),
+            Text(
+              'Weight: 500',
+              style: TextStyle(fontSize: 50, fontWeight: FontWeight.w500),
+            ),
+            Text(
+              'Weight: 600',
+              style: TextStyle(fontSize: 50, fontWeight: FontWeight.w600),
+            ),
+            Text(
+              'Weight: 700 (Bold)',
+              style: TextStyle(fontSize: 50, fontWeight: FontWeight.w700),
+            ),
+            Text(
+              'Weight: 800',
+              style: TextStyle(fontSize: 50, fontWeight: FontWeight.w800),
+            ),
+            Text(
+              'Weight: 900',
+              style: TextStyle(fontSize: 50, fontWeight: FontWeight.w900),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

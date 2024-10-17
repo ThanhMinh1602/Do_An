@@ -6,16 +6,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class CircleGradientBlur extends StatelessWidget {
   final double? width;
   final double? height;
-  final double? sigmaX;
-  final double? sigmaY;
+  final double? blur;
   final List<Color>? colors;
   const CircleGradientBlur({
     super.key,
     this.width,
     this.height,
-    this.sigmaX,
-    this.sigmaY,
     this.colors,
+    this.blur = 80,
   });
 
   @override
@@ -23,8 +21,8 @@ class CircleGradientBlur extends StatelessWidget {
     return ImageFiltered(
       enabled: true,
       imageFilter: ImageFilter.blur(
-        sigmaX: sigmaX ?? 80.0,
-        sigmaY: sigmaY ?? 80.0,
+        sigmaX: blur! / 2,
+        sigmaY: blur! / 2,
         tileMode: TileMode.decal,
       ),
       child: Container(

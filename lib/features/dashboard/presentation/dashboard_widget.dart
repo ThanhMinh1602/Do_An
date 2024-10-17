@@ -7,6 +7,7 @@ import 'package:do_an_flutter/core/components/card/gradient_container_custom.dar
 import 'package:do_an_flutter/core/components/tabbar/tab_bar_custom.dart';
 import 'package:do_an_flutter/core/constants/app_style.dart';
 import 'package:do_an_flutter/core/utils/dimensions.dart';
+import 'package:do_an_flutter/core/utils/scroll_utils.dart';
 import 'package:do_an_flutter/core/utils/spaces.dart';
 import 'package:do_an_flutter/features/dashboard/presentation/widgets/crypto_card_list_widget.dart';
 import 'package:do_an_flutter/features/dashboard/presentation/widgets/daily_and_total_funds_widget.dart';
@@ -14,8 +15,10 @@ import 'package:do_an_flutter/features/dashboard/presentation/widgets/header_wid
 import 'package:do_an_flutter/features/dashboard/presentation/widgets/my_statistics_widget.dart';
 import 'package:do_an_flutter/features/dashboard/presentation/widgets/trade_table_widget.dart';
 import 'package:do_an_flutter/features/dashboard/presentation/widgets/topup_table_widget.dart';
+import 'package:do_an_flutter/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import '../../../core/components/appbar/app_bar_mobile.dart';
 import '../../../core/constants/app_color.dart';
 
@@ -40,26 +43,9 @@ class _DashboardWidgetState extends State<DashboardWidget>
     super.initState();
     tabController = TabController(length: 2, vsync: this);
     _timer = Timer.periodic(const Duration(milliseconds: 200), (Timer timer) {
-      _autoScroll(_scrollControllerTop);
-      _autoScroll(_scrollControllerBottom);
+      ScrollUtils.autoScroll(_scrollControllerTop);
+      ScrollUtils.autoScroll(_scrollControllerBottom);
     });
-  }
-
-  void _autoScroll(ScrollController controller) {
-    if (controller.hasClients) {
-      double maxScrollExtent = controller.position.maxScrollExtent;
-      double currentScrollPosition = controller.position.pixels;
-
-      if (currentScrollPosition >= maxScrollExtent) {
-        controller.jumpTo(0.0);
-      } else {
-        controller.animateTo(
-          currentScrollPosition + 10.0,
-          duration: const Duration(milliseconds: 200),
-          curve: Curves.linear,
-        );
-      }
-    }
   }
 
   @override
@@ -105,7 +91,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                 ),
               );
             },
-            icon: const Icon(Icons.history),
+            icon: SvgPicture.asset(Assets.icons.historyIconSvg,
+                width: 28.0.w, height: 28.0.w),
           )
         ],
       ),

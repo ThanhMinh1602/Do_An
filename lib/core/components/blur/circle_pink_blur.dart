@@ -4,21 +4,30 @@ import 'package:flutter/material.dart';
 
 class CirclePinkBlur extends StatelessWidget {
   final double top;
-  const CirclePinkBlur({super.key, required this.top});
+  final double? right;
+  final double? blur;
+  final double? width;
+  final double? height;
+  const CirclePinkBlur(
+      {super.key,
+      required this.top,
+      this.right,
+      this.blur,
+      this.width,
+      this.height});
 
   @override
   Widget build(BuildContext context) {
     return Positioned(
       top: top,
-      right: -256.0,
+      right: right ?? -256.0,
       child: CircleGradientBlur(
-        sigmaX: 200,
-        sigmaY: 200,
-        width: 512.0,
-        height: 512.0,
-        colors: [
-          AppColor.c_DC349E.withOpacity(0.5),
-          AppColor.c_DC349E.withOpacity(0.5),
+        blur: blur ?? 700,
+        width: width ?? 512.0,
+        height: height ?? 512.0,
+        colors: const [
+          AppColor.c_DC349E,
+          AppColor.c_DC349E,
         ],
       ),
     );

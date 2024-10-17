@@ -3,6 +3,7 @@ import 'package:do_an_flutter/core/components/blur/circle_pink_blur.dart';
 import 'package:do_an_flutter/core/components/blur/rectangle_blur.dart';
 import 'package:do_an_flutter/core/components/footer/desktop_footer_custom.dart';
 import 'package:do_an_flutter/core/components/footer/mobile_footer_custom.dart';
+import 'package:do_an_flutter/core/components/rectangle/rectangle_backgroud.dart';
 import 'package:do_an_flutter/core/extensions/builder_context_extension.dart';
 import 'package:do_an_flutter/core/utils/spaces.dart';
 import 'package:do_an_flutter/features/loadingpage/presentation/cubit/loading_cubit.dart';
@@ -38,12 +39,28 @@ class LoadingWidget extends StatelessWidget {
           ? [
               Stack(
                 children: [
-                  const CirclePinkBlur(top: 0),
-                  const CirclePinkBlur(top: 1946),
                   const Positioned(
-                      left: -200, top: -80, child: RectangleBlur(width: 3000)),
+                    top: -123,
+                    left: -394,
+                    child: RectangleBackgroud(),
+                  ),
                   const Positioned(
-                      left: -600, top: 270, child: RectangleBlur(width: 6000)),
+                    top: 913,
+                    left: -394,
+                    child: RectangleBackgroud(),
+                  ),
+                  const CircleBlueBlur(
+                    top: 0,
+                  ),
+                  const CircleBlueBlur(
+                    top: 1470.13,
+                  ),
+                  const CirclePinkBlur(
+                    top: 316,
+                  ),
+                  const CirclePinkBlur(
+                    top: 1726.13,
+                  ),
                   Column(
                     children: [
                       const SizedBox(height: 64),
@@ -59,37 +76,12 @@ class LoadingWidget extends StatelessWidget {
                       const DesktopFooterCustom()
                     ],
                   ),
-                  const CircleBlueBlur(
-                    top: -256,
-                  ),
-                  const CircleBlueBlur(top: 1400),
-                  const CircleBlueBlur(top: 3747),
-                  const CirclePinkBlur(top: 3433),
-                  const CirclePinkBlur(top: 4355),
                 ],
               )
             ]
           : [
               Stack(
                 children: [
-                  CircleBlueBlur(
-                    top: -256.h,
-                  ),
-                  CircleBlueBlur(
-                    top: 2833.h,
-                    width: 172,
-                    height: 172,
-                    left: 172 / 2,
-                  ),
-                  CircleBlueBlur(
-                    top: 3546.h,
-                    width: 172,
-                    height: 172,
-                    left: -172 / 2,
-                  ),
-                  CirclePinkBlur(
-                    top: 35.h,
-                  ),
                   Column(
                     children: [
                       spaceH18,

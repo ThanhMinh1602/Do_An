@@ -5,12 +5,11 @@ import 'package:do_an_flutter/core/components/text/gradient_text.dart';
 import 'package:do_an_flutter/core/constants/app_color.dart';
 import 'package:do_an_flutter/core/constants/app_style.dart';
 import 'package:do_an_flutter/core/utils/font_weight.dart';
-import 'package:do_an_flutter/core/utils/spaces.dart';
+import 'package:do_an_flutter/core/utils/desktop_space.dart';
 import 'package:do_an_flutter/features/loadingpage/presentation/widgets/desktop/dt_explore_button.dart';
 import 'package:do_an_flutter/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 
 class DtArbitragePlatformWidget extends StatelessWidget {
@@ -20,32 +19,34 @@ class DtArbitragePlatformWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 208.w),
+      padding: EdgeInsets.symmetric(horizontal: 208.w).copyWith(top: 92.0),
       child: Column(
         children: [
           _buildTitle(),
+          dtSpaceH28,
           _buildBanner(),
-          spaceH20,
-          GridView.builder(
-            itemCount: profileUtils.length,
-            shrinkWrap: true,
-            padding: EdgeInsets.symmetric(horizontal: 16.0.w),
-            physics: const NeverScrollableScrollPhysics(),
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 4,
-              crossAxisSpacing: 24,
-              mainAxisSpacing: 24,
-              childAspectRatio: 0.85,
+          dtSpaceH24,
+          dtSpaceH64,
+          SizedBox(
+            height: 222.0,
+            child: ListView.separated(
+              scrollDirection: Axis.horizontal,
+              itemCount: 4,
+              separatorBuilder: (context, index) => dtSpaceW24,
+              itemBuilder: (context, index) {
+                return SizedBox(
+                  height: 222.0,
+                  width: 226,
+                  child: Stack(
+                    children: [
+                      _buildGridCard(index),
+                      _buildGridIcon(index),
+                    ],
+                  ),
+                );
+              },
             ),
-            itemBuilder: (context, index) {
-              return SizedBox(
-                height: 222.0.h,
-                child: Stack(
-                  children: [_buildGridCard(index), _buildGridIcon(index)],
-                ),
-              );
-            },
-          ),
+          )
         ],
       ),
     );
@@ -81,7 +82,7 @@ class DtArbitragePlatformWidget extends StatelessWidget {
           Positioned.fill(
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 24.0)
-                  .copyWith(top: 44.0, bottom: 24.0.h),
+                  .copyWith(top: 44.0, bottom: 24.0),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16),
                 gradient: LinearGradient(colors: [
@@ -105,10 +106,13 @@ class DtArbitragePlatformWidget extends StatelessWidget {
                       textAlign: TextAlign.center,
                       profileUtils[index].title,
                       style: const TextStyle(
-                          color: AppColor.primaryColor,
-                          fontSize: 18,
-                          fontWeight: semibold)),
-                  spaceH4,
+                        color: AppColor.primaryColor,
+                        fontSize: 18.0,
+                        fontWeight: semibold,
+                        height: 24.0 / 18.0,
+                        letterSpacing: -0.04,
+                      )),
+                  dtSpaceH6,
                   Text(
                       textAlign: TextAlign.center,
                       profileUtils[index].content,
@@ -116,8 +120,10 @@ class DtArbitragePlatformWidget extends StatelessWidget {
                       style: const TextStyle(
                           overflow: TextOverflow.ellipsis,
                           color: Colors.white,
-                          fontSize: 16,
-                          fontWeight: regular))
+                          fontSize: 16.0,
+                          fontWeight: regular,
+                          height: 20.0 / 16.0,
+                          letterSpacing: 0))
                 ],
               ),
             ),
@@ -132,23 +138,22 @@ class DtArbitragePlatformWidget extends StatelessWidget {
       children: [
         GradientText(
           text: "The World’s Best Arbitrage Platform",
-          style: AppStyle.bold_56,
+          style: DesktopAppStyle.semiboldText_56,
           gradient: AppColor.buildGradient(),
         ),
-        spaceH16,
+        dtSpaceH16,
         Text(
           "Automated Operation By Smart Contract",
           textAlign: TextAlign.center,
-          style: AppStyle.medium_28,
+          style:DesktopAppStyle.mediumStyle_28,
         ),
-        spaceH24,
+        dtSpaceH24,
         DtExploreButton(
           title: 'Join Now',
           onTap: onTapJoinNow,
         ),
-        spaceH28,
+        dtSpaceH28,
         const SocialIcons(),
-        spaceH28,
       ],
     );
   }
@@ -156,7 +161,6 @@ class DtArbitragePlatformWidget extends StatelessWidget {
   Widget _buildBanner() {
     return Image.asset(
       Assets.images.desktopBanner.path,
-      fit: BoxFit.cover,
       width: 818.06,
       height: 400.0,
     );

@@ -7,8 +7,14 @@ class CircleBlueBlur extends StatelessWidget {
   final double? left;
   final double? width;
   final double? height;
+  final double? blur;
   const CircleBlueBlur(
-      {super.key, required this.top, this.left, this.width, this.height});
+      {super.key,
+      required this.top,
+      this.left,
+      this.width,
+      this.height,
+      this.blur});
 
   @override
   Widget build(BuildContext context) {
@@ -16,13 +22,12 @@ class CircleBlueBlur extends StatelessWidget {
       top: top,
       left: left ?? -256.0,
       child: CircleGradientBlur(
-        sigmaX: 200,
-        sigmaY: 200,
+        blur: blur ?? 700,
         width: width ?? 512.0,
         height: height ?? 512.0,
-        colors: [
-          AppColor.primaryColor.withOpacity(0.5),
-          AppColor.primaryColor.withOpacity(0.5),
+        colors: const [
+          AppColor.primaryColor,
+          AppColor.primaryColor,
         ],
       ),
     );

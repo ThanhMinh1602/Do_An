@@ -1,4 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:do_an_flutter/core/components/blur/circle_blue_blur.dart';
+import 'package:do_an_flutter/core/components/blur/circle_pink_blur.dart';
 import 'package:do_an_flutter/core/components/card/card_custom.dart';
 import 'package:do_an_flutter/core/components/card/model/information.dart';
 import 'package:do_an_flutter/core/components/page_indicator_custom.dart';
@@ -43,17 +45,27 @@ class _ProtocoFlashLoansWidgetState extends State<DtProtocoFlashLoansWidget>
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Stack(
       children: [
-        _buildTabbar(),
-        const SizedBox(height: 24.0),
-        IndexedStack(
-          index: _currentIndex,
+        const CircleBlueBlur(
+          top: 330.13,
+        ),
+        const CirclePinkBlur(
+          top: 646.13,
+        ),
+        Column(
           children: [
-            _buildProtocolView(),
-            _buildFlashLoansView(),
+            _buildTabbar(),
+            const SizedBox(height: 24.0),
+            IndexedStack(
+              index: _currentIndex,
+              children: [
+                _buildProtocolView(),
+                _buildFlashLoansView(),
+              ],
+            )
           ],
-        )
+        ),
       ],
     );
   }
@@ -79,6 +91,7 @@ class _ProtocoFlashLoansWidgetState extends State<DtProtocoFlashLoansWidget>
                   width: 420,
                   height: 60,
                   borderRadius: 100,
+                  textStyle: DesktopAppStyle.semiboldStyle_24,
                   controller: tabController,
                   tabs: const ['Protoco', 'Flash Loans'],
                 ),
@@ -105,19 +118,35 @@ class _ProtocoFlashLoansWidgetState extends State<DtProtocoFlashLoansWidget>
           Text(
             'Introduce',
             textAlign: TextAlign.center,
-            style: AppStyle.textTitle,
+            style: DesktopAppStyle.semiboldStyle_28,
           ),
           const SizedBox(height: 8.0),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 126.w),
+            padding: const EdgeInsets.symmetric(horizontal: 126.0),
             child: Text(
               'Aave Protocol is a decentralized finance (DeFi) platform that functions on the Ethereum blockchain and enables users to lend and borrow a diverse range of cryptocurrencies without any intermediaries. The platform uses smart contracts to facilitate peer-to-peer lending through an open-source protocol and allows users to earn interest on deposits or access loans.',
               textAlign: TextAlign.center,
-              style: AppStyle.regular_14,
+              style: DesktopAppStyle.regularStyle_14,
             ),
           ),
           const SizedBox(height: 24.0),
-          _buildProtocolGridView(),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              _customCard(dataIndex: 0, height: 320),
+              const SizedBox(width: 24.0),
+              _customCard(dataIndex: 0, height: 320),
+            ],
+          ),
+          const SizedBox(height: 24.0),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              _customCard(dataIndex: 0, height: 254),
+              const SizedBox(width: 24.0),
+              _customCard(dataIndex: 0, height: 254),
+            ],
+          ),
           const SizedBox(height: 24.0),
           const SizedBox(height: 24.0),
           DtExploreButton(
@@ -126,6 +155,27 @@ class _ProtocoFlashLoansWidgetState extends State<DtProtocoFlashLoansWidget>
           const SizedBox(height: 24.0),
         ],
       ),
+    );
+  }
+
+  CardCustom _customCard({
+    required int dataIndex,
+    required double height,
+  }) {
+    return CardCustom(
+      imageWidth: 68.0,
+      imageHeight: 48.0,
+      padding: const EdgeInsets.all(24.0),
+      margin: const EdgeInsets.all(0),
+      titleContentSpace: 8.0,
+      width: 381.0,
+      height: height,
+      titleStyle: DesktopAppStyle.boldStyle_20,
+      contentStyle: DesktopAppStyle.regularStyle_14,
+      blur: 100,
+      title: protocls[dataIndex].title,
+      content: protocls[dataIndex].content,
+      image: protocls[dataIndex].imagePath,
     );
   }
 

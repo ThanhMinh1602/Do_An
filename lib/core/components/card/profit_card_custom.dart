@@ -13,12 +13,22 @@ class ProfitCardCustom extends StatelessWidget {
   final String profit;
   final String leftIcon;
   final String rightIcon;
+  final double? width;
+  final double? height;
+  final EdgeInsetsGeometry? margin;
+  final TextStyle? titleStyle;
+  final TextStyle? fofitStyle;
   const ProfitCardCustom({
     super.key,
     required this.title,
     required this.profit,
     required this.leftIcon,
     required this.rightIcon,
+    this.width,
+    this.height,
+    this.margin,
+    this.titleStyle,
+    this.fofitStyle,
   });
 
   @override
@@ -26,9 +36,9 @@ class ProfitCardCustom extends StatelessWidget {
     final gradient = AppColor.buildGradient(opacity: 0.1);
     return Container(
       alignment: Alignment.center,
-      width: 166.w,
-      height: 100.h,
-      margin: EdgeInsets.symmetric(horizontal: 6.0.w),
+      width: width ?? 166.w,
+      height: height ?? 100.h,
+      margin: margin ?? EdgeInsets.symmetric(horizontal: 6.0.w),
       padding: EdgeInsets.symmetric(vertical: 12.0.h, horizontal: 17.0.w),
       decoration: BoxDecoration(
         gradient: gradient,

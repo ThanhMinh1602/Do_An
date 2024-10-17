@@ -8,6 +8,7 @@ class CustomTabBar extends StatelessWidget {
   final double? width;
   final double? height;
   final double? borderRadius;
+  final TextStyle? textStyle;
 
   const CustomTabBar({
     super.key,
@@ -16,6 +17,7 @@ class CustomTabBar extends StatelessWidget {
     this.width,
     this.height,
     this.borderRadius,
+    this.textStyle,
   });
 
   @override
@@ -50,11 +52,12 @@ class CustomTabBar extends StatelessWidget {
             alignment: Alignment.center,
             child: Text(
               tab,
-              style: TextStyle(
-                fontSize: 16.0.sp,
-                fontWeight: FontWeight.bold,
-                color: AppColor.whiteColor,
-              ),
+              style: textStyle ??
+                  TextStyle(
+                    fontSize: 16.0.sp,
+                    fontWeight: FontWeight.bold,
+                    color: AppColor.whiteColor,
+                  ),
             ),
           );
         }).toList(),

@@ -1,5 +1,9 @@
+import 'package:do_an_flutter/core/components/blur/circle_blue_blur.dart';
+import 'package:do_an_flutter/core/components/blur/circle_pink_blur.dart';
+import 'package:do_an_flutter/core/components/blur/custom_blur.dart';
 import 'package:do_an_flutter/core/components/social_icon_custom.dart';
 import 'package:do_an_flutter/core/constants/app_color.dart';
+import 'package:do_an_flutter/core/constants/app_style.dart';
 import 'package:do_an_flutter/core/utils/font_weight.dart';
 import 'package:do_an_flutter/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
@@ -11,36 +15,56 @@ class DesktopFooterCustom extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      padding: EdgeInsets.symmetric(horizontal: 208.0.w, vertical: 40.0),
-      decoration: BoxDecoration(gradient: AppColor.buildGradient(opacity: 0.1)),
-      child: Column(
-        children: [
-          SvgPicture.asset(
-            Assets.icons.logo,
-            width: 48.0.w,
-            height: 48.0.w,
-          ),
-          const SizedBox(height: 32),
-          const FooterLinks(),
-          const SizedBox(height: 32),
-          const SocialIcons(),
-          const SizedBox(height: 24),
-          Divider(color: AppColor.whiteColor.withOpacity(0.1)),
-          const SizedBox(height: 24),
-          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-            Text(
-              '© 2024 Galaxy. All Rights Reserved.',
-              style: TextStyle(
-                  fontSize: 16.0.sp,
-                  fontWeight: regular,
-                  color: AppColor.grey200),
+    return Stack(
+      children: [
+        const CircleBlueBlur(
+          left: 298.0,
+          top: -22,
+          blur: 350,
+          width: 172,
+          height: 172,
+        ),
+        const CirclePinkBlur(
+          top: 283,
+          blur: 350,
+          right: 371,
+          width: 172,
+          height: 172,
+        ),
+        CustomBlur(
+          blur: 100,
+          child: Container(
+            width: double.infinity,
+            padding: EdgeInsets.symmetric(horizontal: 208.0.w, vertical: 40.0),
+            decoration:
+                BoxDecoration(gradient: AppColor.buildGradient(opacity: 0.1)),
+            child: Column(
+              children: [
+                SvgPicture.asset(
+                  Assets.icons.logo,
+                  width: 48.0,
+                  height: 48.0,
+                ),
+                const SizedBox(height: 32),
+                const FooterLinks(),
+                const SizedBox(height: 32),
+                const SocialIcons(),
+                const SizedBox(height: 24),
+                Divider(color: AppColor.whiteColor.withOpacity(0.1)),
+                const SizedBox(height: 24),
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text('© 2024 Galaxy. All Rights Reserved.',
+                          style: DesktopAppStyle.regularStyle_16
+                              .copyWith(color: AppColor.grey200)),
+                      const FooterLegal()
+                    ]),
+              ],
             ),
-            const FooterLegal()
-          ]),
-        ],
-      ),
+          ),
+        ),
+      ],
     );
   }
 }
@@ -71,14 +95,7 @@ class FooterLinkText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      text,
-      style: TextStyle(
-        fontSize: 16.0.sp,
-        color: AppColor.whiteColor,
-        fontWeight: medium,
-      ),
-    );
+    return Text(text, style: DesktopAppStyle.regularStyle_16);
   }
 }
 
@@ -107,13 +124,8 @@ class FooterLegalText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      text,
-      style: TextStyle(
-        fontSize: 14.0.sp,
-        fontWeight: regular,
-        color: AppColor.grey500,
-      ),
-    );
+    return Text(text,
+        style:
+            DesktopAppStyle.regularStyle_16.copyWith(color: AppColor.grey400));
   }
 }

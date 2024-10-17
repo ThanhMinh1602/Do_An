@@ -14,7 +14,7 @@ class DtTrustedByTeamsAtWidget extends StatelessWidget {
       children: [
         Text(
           'Trusted By Teams At',
-          style: AppStyle.bold_20,
+          style: DesktopAppStyle.boldStyle_20,
         ),
         const SizedBox(height: 16.0),
         Container(
@@ -47,9 +47,9 @@ class DtTrustedByTeamsAtWidget extends StatelessWidget {
                 children: [
                   SvgPicture.asset(Assets.images.jpMorganChaseSvg, height: 48),
                   const SizedBox(width: 32),
-                  SvgPicture.asset(Assets.images.masSvg, height: 48),
-                  const SizedBox(width: 32),
                   SvgPicture.asset(Assets.images.bancoCentral, height: 48),
+                  const SizedBox(width: 32),
+                  SvgPicture.asset(Assets.images.masSvg, height: 48),
                 ],
               ),
             ],

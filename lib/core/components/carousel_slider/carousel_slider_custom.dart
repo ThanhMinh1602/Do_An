@@ -6,6 +6,7 @@ class CarouselSliderCustom extends StatelessWidget {
   final Widget Function(BuildContext, int, int)? itemBuilder;
   final double? viewportFraction;
   final double? aspectRatio;
+  final double? height;
   final dynamic Function(int, CarouselPageChangedReason)? onPageChanged;
   const CarouselSliderCustom(
       {super.key,
@@ -13,7 +14,8 @@ class CarouselSliderCustom extends StatelessWidget {
       this.itemBuilder,
       this.viewportFraction,
       this.aspectRatio,
-      this.onPageChanged});
+      this.onPageChanged,
+      this.height});
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +23,8 @@ class CarouselSliderCustom extends StatelessWidget {
       itemCount: itemCount,
       itemBuilder: itemBuilder,
       options: CarouselOptions(
+        pageSnapping: true,
+        height: height,
         initialPage: 0,
         viewportFraction: viewportFraction ?? 0.7,
         disableCenter: true,

@@ -31,15 +31,11 @@ class _PowerLowestNetworkFeesWidgetState
     return Column(
       children: [
         const SizedBox(height: 46),
-        SvgPicture.asset(
-          Assets.images.polygon,
-          width: 209.28,
-          height: 44.0,
-        ),
+        SvgPicture.asset(Assets.images.polygon, width: 209.28, height: 44.0),
         const SizedBox(height: 12),
         GradientText(
           text: "The Power of\nLowest Network Fees",
-          style: AppStyle.bold_36,
+          style: DesktopAppStyle.boldStyle_36,
           gradient: AppColor.buildGradient(),
         ),
         const SizedBox(height: 24.0),
@@ -49,6 +45,7 @@ class _PowerLowestNetworkFeesWidgetState
             const CircleGradientBlur(
               width: 234,
               height: 234,
+              blur: 200,
             ),
             _buildCarouselSlider()
           ],
@@ -69,12 +66,13 @@ class _PowerLowestNetworkFeesWidgetState
   Widget _buildCarouselSlider() {
     return SizedBox(
       width: 860,
+      height: 288,
       child: Stack(
         children: [
           CarouselSliderCustom(
             itemCount: powerLowestNetworkFees.length,
-            aspectRatio: 2.8,
-            viewportFraction: 0.4,
+            height: 300.0,
+            viewportFraction: 0.34,
             onPageChanged: (index, reason) {
               pageIndex = index;
               setState(() {});
@@ -122,6 +120,15 @@ class _PowerLowestNetworkFeesWidgetState
         CardCustom(
           title: title,
           content: content,
+          titleContentSpace: 12.0,
+          padding: const EdgeInsets.symmetric(horizontal: 16.0)
+              .copyWith(top: 40.0, bottom: 16.0),
+          blur: 100,
+          margin: const EdgeInsets.only(top: 24.0),
+          titleStyle: DesktopAppStyle.boldStyle_20,
+          contentStyle: DesktopAppStyle.regularStyle_14,
+          height: 260,
+          width: 300,
         ),
         Positioned(
           top: 0,

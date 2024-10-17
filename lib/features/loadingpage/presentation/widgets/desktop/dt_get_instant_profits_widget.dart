@@ -1,6 +1,6 @@
 import 'dart:async';
-import 'package:do_an_flutter/core/components/blur/circle_blue_blur.dart';
-import 'package:do_an_flutter/core/components/blur/circle_pink_blur.dart';
+import 'dart:ui';
+import 'package:do_an_flutter/core/components/blur/custom_blur.dart';
 import 'package:do_an_flutter/core/components/blur/rectangle_blur.dart';
 import 'package:do_an_flutter/core/components/card/model/information.dart';
 import 'package:do_an_flutter/core/components/text/gradient_text.dart';
@@ -57,7 +57,7 @@ class _DtGetInstantProfitsWidgetState extends State<DtGetInstantProfitsWidget> {
       height: 727.0,
       width: context.getWidth,
       child: PageView.builder(
-        controller: _pageController,
+        // controller: _pageController,
         itemCount: instantProfitsDesktop.length,
         itemBuilder: (context, index) {
           final item = instantProfitsDesktop[index];
@@ -101,7 +101,7 @@ class _PageWidget extends StatelessWidget {
               const SizedBox(height: 64),
               GradientText(
                 text: "Get Instant Profits At",
-                style: AppStyle.bold_36,
+                style: DesktopAppStyle.boldStyle_36,
                 gradient: AppColor.buildGradient(),
               ),
               const SizedBox(height: 12.0),
@@ -115,7 +115,16 @@ class _PageWidget extends StatelessWidget {
             ],
           ),
         ),
-        const Positioned(bottom: -180, right: -120, child: RectangleBlur()),
+        Positioned(
+          top: 495,
+          left: 454.55,
+          child: Transform.rotate(
+            angle: 20 * (3.14159265359 / -180), // Chuyển đổi độ sang radian
+            child: const RectangleBlur(
+              width: 1300,
+            ),
+          ),
+        ),
       ],
     );
   }
@@ -131,25 +140,28 @@ Widget _buildMainContent({
     height: 527,
     child: Row(
       children: [
-        Expanded(
+        SizedBox(
+          width: 465.0,
           child: Padding(
-            padding: const EdgeInsets.only(left: 100, top: 72),
+            padding: const EdgeInsets.only(left: 100.0, top: 72.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   title,
-                  style: AppStyle.semibold_28,
+                  style: DesktopAppStyle.semiboldText_28,
                 ),
                 const SizedBox(height: 24.0),
                 Text(
                   content,
-                  style: AppStyle.regular_20,
+                  style: DesktopAppStyle.regularText_20,
                 ),
                 const SizedBox(height: 40),
-                const Align(
-                  alignment: Alignment.centerLeft,
-                  child: DtExploreButton(),
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    DtExploreButton(),
+                  ],
                 ),
               ],
             ),
@@ -157,9 +169,8 @@ Widget _buildMainContent({
         ),
         Image.asset(
           imagePath,
-          width: 559.w,
-          height: 527.h,
-          fit: BoxFit.fill,
+          width: 559,
+          height: 527,
         ),
       ],
     ),

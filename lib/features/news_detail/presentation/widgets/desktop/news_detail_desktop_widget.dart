@@ -20,7 +20,7 @@ class NewsDetailDesktopWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: const AppBarDesktop(pageIndex: 4),
+        // appBar: const AppBarDesktop(pageIndex: 4),
         backgroundColor: AppColor.backgroundColor,
         body: BackgroundCustom(
           child: ListView(
