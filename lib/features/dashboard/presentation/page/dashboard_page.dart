@@ -1,5 +1,5 @@
 import 'package:do_an_flutter/features/dashboard/presentation/binding/dashboard_binding.dart';
-import 'package:do_an_flutter/features/dashboard/presentation/widgets/dashboard_widget.dart';
+import 'package:do_an_flutter/features/dashboard/presentation/dashboard_widget.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

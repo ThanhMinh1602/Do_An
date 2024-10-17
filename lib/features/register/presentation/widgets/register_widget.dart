@@ -99,7 +99,7 @@ class _RegisterWidgetsState extends State<RegisterWidget> {
                     text: 'Disclaimer',
                     recognizer: TapGestureRecognizer()
                       ..onTap = () {
-                        BottomSheetsCustom.bottomSheet(context,
+                        BottomSheetsCustom.showBottomSheet(context,
                             title: 'Disclaimer',
                             child: ListView(
                               shrinkWrap: true,

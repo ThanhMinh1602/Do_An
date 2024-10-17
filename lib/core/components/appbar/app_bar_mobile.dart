@@ -2,13 +2,11 @@ import 'package:do_an_flutter/core/components/bottom_sheets/bottom_sheets_custom
 import 'package:do_an_flutter/core/components/button/connect_wallet_button_custom.dart';
 import 'package:do_an_flutter/core/components/button/custom_button.dart';
 import 'package:do_an_flutter/core/constants/app_color.dart';
-import 'package:do_an_flutter/core/constants/app_style.dart';
 import 'package:do_an_flutter/core/utils/spaces.dart';
 import 'package:do_an_flutter/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:outline_gradient_button/outline_gradient_button.dart';
 
 class AppBarMobile extends StatelessWidget implements PreferredSizeWidget {
   final BuildContext context;
@@ -45,14 +43,15 @@ class AppBarMobile extends StatelessWidget implements PreferredSizeWidget {
                 btnTxt: 'Connect Wallet',
                 width: 128.0.w,
                 height: 34.h,
-                onTap: () => BottomSheetsCustom.bottomSheet(
+                onTap: () => BottomSheetsCustom.showBottomSheet(
                   context,
+                  height: 406.h,
+                  title: 'Wallet',
                   child: Column(
                     children: [
                       ConnectWalletButtonCustom(
                         iconPath: Assets.icons.metamaskIconSvg,
                         text: 'Metamask',
-                        
                       ),
                       spaceH12,
                       ConnectWalletButtonCustom(

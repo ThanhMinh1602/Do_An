@@ -141,6 +141,12 @@ class AppStyle {
     fontWeight: medium,
     color: AppColor.whiteColor,
   );
+  static TextStyle medium_14 = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: medium,
+    color: AppColor.whiteColor,
+  );
+
   static TextStyle medium_12 = TextStyle(
     fontSize: 12.sp,
     fontWeight: medium,

@@ -22,6 +22,7 @@ class AppColor {
   static const blackColor = Colors.black;
   static var green500 = Colors.green[500];
   static var grey200 = Colors.grey[200];
+  static var grey400 = Colors.grey[400];
   static var grey700 = Colors.grey[700];
   static var grey800 = Colors.grey[800];
   static var grey900 = Colors.grey[900];

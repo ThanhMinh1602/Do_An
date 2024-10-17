@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomTabBar extends StatelessWidget {
-  final TabController controller;
+  final TabController? controller;
   final List<String> tabs;
   final double? width;
   final double? height;
@@ -11,7 +11,7 @@ class CustomTabBar extends StatelessWidget {
 
   const CustomTabBar({
     super.key,
-    required this.controller,
+    this.controller,
     required this.tabs,
     this.width,
     this.height,
