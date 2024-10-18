@@ -5,6 +5,7 @@ import 'package:do_an_flutter/features/dashboard/presentation/page/dashboard_pag
 import 'package:do_an_flutter/features/dashboard/presentation/widgets/trade_table_widget.dart';
 import 'package:do_an_flutter/features/loadingpage/presentation/page/loading_page.dart';
 import 'package:do_an_flutter/features/main/presentation/page/main_page.dart';
+import 'package:do_an_flutter/features/trading/presentation/page/trading_page.dart';
 import 'package:do_an_flutter/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 
@@ -39,7 +40,8 @@ class MyApp extends StatelessWidget {
             useMaterial3: true,
             fontFamily: 'FSProDisplay',
           ),
-          home: const MainPage(),
+          // home: const MainPage(),
+          home: TradingPage(),
         );
       },
     );

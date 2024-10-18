@@ -30,8 +30,8 @@ class HeaderWidget extends StatelessWidget {
               spaceH2,
               Text(
                 FormatStringUtils.shortenString('0Xd3hdfgjajf36f7',
-                    selectQuantityNumber: 3),
-                style: AppStyle.bold_24,
+                    selectQuantityNumber: 4),
+                style: AppStyle.semibold_24,
               ),
               spaceW12,
             ],
