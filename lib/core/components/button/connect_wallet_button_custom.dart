@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:do_an_flutter/core/components/blur/custom_blur.dart';
 import 'package:do_an_flutter/core/components/card/gradient_container_custom.dart';
 import 'package:do_an_flutter/core/constants/app_color.dart';
@@ -7,7 +5,6 @@ import 'package:do_an_flutter/core/constants/app_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:outline_gradient_button/outline_gradient_button.dart';
 
 class ConnectWalletButtonCustom extends StatelessWidget {
   final void Function()? onTap;

@@ -1,4 +1,3 @@
-import 'package:do_an_flutter/core/components/card/crypto_pair_custom.dart';
 import 'package:do_an_flutter/core/components/table/custom_row_cell.dart';
 import 'package:do_an_flutter/core/components/table/header_cell_custom.dart';
 import 'package:do_an_flutter/core/components/table/table_custom.dart';

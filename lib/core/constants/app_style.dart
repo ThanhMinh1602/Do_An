@@ -60,8 +60,16 @@ class AppStyle {
 
   static TextStyle regular_12 = TextStyle(
     fontSize: 12.0.sp,
+    fontFamily: 'SF Pro Display',
     fontWeight: regular,
     color: AppColor.grey500,
+  );
+
+  static TextStyle regular_12_grey300 = TextStyle(
+    fontSize: 12.0.sp,
+    fontWeight: regular,
+    fontFamily: 'SF Pro Display',
+    color: AppColor.grey300,
   );
 
   // Semi-bold styles
@@ -133,6 +141,12 @@ class AppStyle {
     fontSize: 14.0.sp,
     fontWeight: bold,
     color: AppColor.whiteColor,
+  );
+  static TextStyle bold_12 = TextStyle(
+    fontSize: 12.0.sp,
+    fontWeight: bold,
+    fontFamily: "SF Pro Display",
+    color: AppColor.green500,
   );
 
   // Medium styles
