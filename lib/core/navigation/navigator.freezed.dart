@@ -21,7 +21,7 @@ mixin _$ScreenType {
     required TResult Function() loadingPage,
     required TResult Function(NewItemModel newItemModel) newsDetailPage,
     required TResult Function() registerPage,
-    required TResult Function() dashboardPage,
+    required TResult Function() loggedMainPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,7 +29,7 @@ mixin _$ScreenType {
     TResult? Function()? loadingPage,
     TResult? Function(NewItemModel newItemModel)? newsDetailPage,
     TResult? Function()? registerPage,
-    TResult? Function()? dashboardPage,
+    TResult? Function()? loggedMainPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,7 +37,7 @@ mixin _$ScreenType {
     TResult Function()? loadingPage,
     TResult Function(NewItemModel newItemModel)? newsDetailPage,
     TResult Function()? registerPage,
-    TResult Function()? dashboardPage,
+    TResult Function()? loggedMainPage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -46,7 +46,7 @@ mixin _$ScreenType {
     required TResult Function(LoadingPageType value) loadingPage,
     required TResult Function(NewsDetailPageType value) newsDetailPage,
     required TResult Function(RegisterPageType value) registerPage,
-    required TResult Function(DashboardPageType value) dashboardPage,
+    required TResult Function(LoggedMainPageType value) loggedMainPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -54,7 +54,7 @@ mixin _$ScreenType {
     TResult? Function(LoadingPageType value)? loadingPage,
     TResult? Function(NewsDetailPageType value)? newsDetailPage,
     TResult? Function(RegisterPageType value)? registerPage,
-    TResult? Function(DashboardPageType value)? dashboardPage,
+    TResult? Function(LoggedMainPageType value)? loggedMainPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -62,7 +62,7 @@ mixin _$ScreenType {
     TResult Function(LoadingPageType value)? loadingPage,
     TResult Function(NewsDetailPageType value)? newsDetailPage,
     TResult Function(RegisterPageType value)? registerPage,
-    TResult Function(DashboardPageType value)? dashboardPage,
+    TResult Function(LoggedMainPageType value)? loggedMainPage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -133,7 +133,7 @@ class _$LoadingPageTypeImpl implements LoadingPageType {
     required TResult Function() loadingPage,
     required TResult Function(NewItemModel newItemModel) newsDetailPage,
     required TResult Function() registerPage,
-    required TResult Function() dashboardPage,
+    required TResult Function() loggedMainPage,
   }) {
     return loadingPage();
   }
@@ -144,7 +144,7 @@ class _$LoadingPageTypeImpl implements LoadingPageType {
     TResult? Function()? loadingPage,
     TResult? Function(NewItemModel newItemModel)? newsDetailPage,
     TResult? Function()? registerPage,
-    TResult? Function()? dashboardPage,
+    TResult? Function()? loggedMainPage,
   }) {
     return loadingPage?.call();
   }
@@ -155,7 +155,7 @@ class _$LoadingPageTypeImpl implements LoadingPageType {
     TResult Function()? loadingPage,
     TResult Function(NewItemModel newItemModel)? newsDetailPage,
     TResult Function()? registerPage,
-    TResult Function()? dashboardPage,
+    TResult Function()? loggedMainPage,
     required TResult orElse(),
   }) {
     if (loadingPage != null) {
@@ -170,7 +170,7 @@ class _$LoadingPageTypeImpl implements LoadingPageType {
     required TResult Function(LoadingPageType value) loadingPage,
     required TResult Function(NewsDetailPageType value) newsDetailPage,
     required TResult Function(RegisterPageType value) registerPage,
-    required TResult Function(DashboardPageType value) dashboardPage,
+    required TResult Function(LoggedMainPageType value) loggedMainPage,
   }) {
     return loadingPage(this);
   }
@@ -181,7 +181,7 @@ class _$LoadingPageTypeImpl implements LoadingPageType {
     TResult? Function(LoadingPageType value)? loadingPage,
     TResult? Function(NewsDetailPageType value)? newsDetailPage,
     TResult? Function(RegisterPageType value)? registerPage,
-    TResult? Function(DashboardPageType value)? dashboardPage,
+    TResult? Function(LoggedMainPageType value)? loggedMainPage,
   }) {
     return loadingPage?.call(this);
   }
@@ -192,7 +192,7 @@ class _$LoadingPageTypeImpl implements LoadingPageType {
     TResult Function(LoadingPageType value)? loadingPage,
     TResult Function(NewsDetailPageType value)? newsDetailPage,
     TResult Function(RegisterPageType value)? registerPage,
-    TResult Function(DashboardPageType value)? dashboardPage,
+    TResult Function(LoggedMainPageType value)? loggedMainPage,
     required TResult orElse(),
   }) {
     if (loadingPage != null) {
@@ -279,7 +279,7 @@ class _$NewsDetailPageTypeImpl implements NewsDetailPageType {
     required TResult Function() loadingPage,
     required TResult Function(NewItemModel newItemModel) newsDetailPage,
     required TResult Function() registerPage,
-    required TResult Function() dashboardPage,
+    required TResult Function() loggedMainPage,
   }) {
     return newsDetailPage(newItemModel);
   }
@@ -290,7 +290,7 @@ class _$NewsDetailPageTypeImpl implements NewsDetailPageType {
     TResult? Function()? loadingPage,
     TResult? Function(NewItemModel newItemModel)? newsDetailPage,
     TResult? Function()? registerPage,
-    TResult? Function()? dashboardPage,
+    TResult? Function()? loggedMainPage,
   }) {
     return newsDetailPage?.call(newItemModel);
   }
@@ -301,7 +301,7 @@ class _$NewsDetailPageTypeImpl implements NewsDetailPageType {
     TResult Function()? loadingPage,
     TResult Function(NewItemModel newItemModel)? newsDetailPage,
     TResult Function()? registerPage,
-    TResult Function()? dashboardPage,
+    TResult Function()? loggedMainPage,
     required TResult orElse(),
   }) {
     if (newsDetailPage != null) {
@@ -316,7 +316,7 @@ class _$NewsDetailPageTypeImpl implements NewsDetailPageType {
     required TResult Function(LoadingPageType value) loadingPage,
     required TResult Function(NewsDetailPageType value) newsDetailPage,
     required TResult Function(RegisterPageType value) registerPage,
-    required TResult Function(DashboardPageType value) dashboardPage,
+    required TResult Function(LoggedMainPageType value) loggedMainPage,
   }) {
     return newsDetailPage(this);
   }
@@ -327,7 +327,7 @@ class _$NewsDetailPageTypeImpl implements NewsDetailPageType {
     TResult? Function(LoadingPageType value)? loadingPage,
     TResult? Function(NewsDetailPageType value)? newsDetailPage,
     TResult? Function(RegisterPageType value)? registerPage,
-    TResult? Function(DashboardPageType value)? dashboardPage,
+    TResult? Function(LoggedMainPageType value)? loggedMainPage,
   }) {
     return newsDetailPage?.call(this);
   }
@@ -338,7 +338,7 @@ class _$NewsDetailPageTypeImpl implements NewsDetailPageType {
     TResult Function(LoadingPageType value)? loadingPage,
     TResult Function(NewsDetailPageType value)? newsDetailPage,
     TResult Function(RegisterPageType value)? registerPage,
-    TResult Function(DashboardPageType value)? dashboardPage,
+    TResult Function(LoggedMainPageType value)? loggedMainPage,
     required TResult orElse(),
   }) {
     if (newsDetailPage != null) {
@@ -405,7 +405,7 @@ class _$RegisterPageTypeImpl implements RegisterPageType {
     required TResult Function() loadingPage,
     required TResult Function(NewItemModel newItemModel) newsDetailPage,
     required TResult Function() registerPage,
-    required TResult Function() dashboardPage,
+    required TResult Function() loggedMainPage,
   }) {
     return registerPage();
   }
@@ -416,7 +416,7 @@ class _$RegisterPageTypeImpl implements RegisterPageType {
     TResult? Function()? loadingPage,
     TResult? Function(NewItemModel newItemModel)? newsDetailPage,
     TResult? Function()? registerPage,
-    TResult? Function()? dashboardPage,
+    TResult? Function()? loggedMainPage,
   }) {
     return registerPage?.call();
   }
@@ -427,7 +427,7 @@ class _$RegisterPageTypeImpl implements RegisterPageType {
     TResult Function()? loadingPage,
     TResult Function(NewItemModel newItemModel)? newsDetailPage,
     TResult Function()? registerPage,
-    TResult Function()? dashboardPage,
+    TResult Function()? loggedMainPage,
     required TResult orElse(),
   }) {
     if (registerPage != null) {
@@ -442,7 +442,7 @@ class _$RegisterPageTypeImpl implements RegisterPageType {
     required TResult Function(LoadingPageType value) loadingPage,
     required TResult Function(NewsDetailPageType value) newsDetailPage,
     required TResult Function(RegisterPageType value) registerPage,
-    required TResult Function(DashboardPageType value) dashboardPage,
+    required TResult Function(LoggedMainPageType value) loggedMainPage,
   }) {
     return registerPage(this);
   }
@@ -453,7 +453,7 @@ class _$RegisterPageTypeImpl implements RegisterPageType {
     TResult? Function(LoadingPageType value)? loadingPage,
     TResult? Function(NewsDetailPageType value)? newsDetailPage,
     TResult? Function(RegisterPageType value)? registerPage,
-    TResult? Function(DashboardPageType value)? dashboardPage,
+    TResult? Function(LoggedMainPageType value)? loggedMainPage,
   }) {
     return registerPage?.call(this);
   }
@@ -464,7 +464,7 @@ class _$RegisterPageTypeImpl implements RegisterPageType {
     TResult Function(LoadingPageType value)? loadingPage,
     TResult Function(NewsDetailPageType value)? newsDetailPage,
     TResult Function(RegisterPageType value)? registerPage,
-    TResult Function(DashboardPageType value)? dashboardPage,
+    TResult Function(LoggedMainPageType value)? loggedMainPage,
     required TResult orElse(),
   }) {
     if (registerPage != null) {
@@ -479,18 +479,18 @@ abstract class RegisterPageType implements ScreenType {
 }
 
 /// @nodoc
-abstract class _$$DashboardPageTypeImplCopyWith<$Res> {
-  factory _$$DashboardPageTypeImplCopyWith(_$DashboardPageTypeImpl value,
-          $Res Function(_$DashboardPageTypeImpl) then) =
-      __$$DashboardPageTypeImplCopyWithImpl<$Res>;
+abstract class _$$LoggedMainPageTypeImplCopyWith<$Res> {
+  factory _$$LoggedMainPageTypeImplCopyWith(_$LoggedMainPageTypeImpl value,
+          $Res Function(_$LoggedMainPageTypeImpl) then) =
+      __$$LoggedMainPageTypeImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$DashboardPageTypeImplCopyWithImpl<$Res>
-    extends _$ScreenTypeCopyWithImpl<$Res, _$DashboardPageTypeImpl>
-    implements _$$DashboardPageTypeImplCopyWith<$Res> {
-  __$$DashboardPageTypeImplCopyWithImpl(_$DashboardPageTypeImpl _value,
-      $Res Function(_$DashboardPageTypeImpl) _then)
+class __$$LoggedMainPageTypeImplCopyWithImpl<$Res>
+    extends _$ScreenTypeCopyWithImpl<$Res, _$LoggedMainPageTypeImpl>
+    implements _$$LoggedMainPageTypeImplCopyWith<$Res> {
+  __$$LoggedMainPageTypeImplCopyWithImpl(_$LoggedMainPageTypeImpl _value,
+      $Res Function(_$LoggedMainPageTypeImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of ScreenType
@@ -499,18 +499,18 @@ class __$$DashboardPageTypeImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DashboardPageTypeImpl implements DashboardPageType {
-  const _$DashboardPageTypeImpl();
+class _$LoggedMainPageTypeImpl implements LoggedMainPageType {
+  const _$LoggedMainPageTypeImpl();
 
   @override
   String toString() {
-    return 'ScreenType.dashboardPage()';
+    return 'ScreenType.loggedMainPage()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$DashboardPageTypeImpl);
+        (other.runtimeType == runtimeType && other is _$LoggedMainPageTypeImpl);
   }
 
   @override
@@ -522,9 +522,9 @@ class _$DashboardPageTypeImpl implements DashboardPageType {
     required TResult Function() loadingPage,
     required TResult Function(NewItemModel newItemModel) newsDetailPage,
     required TResult Function() registerPage,
-    required TResult Function() dashboardPage,
+    required TResult Function() loggedMainPage,
   }) {
-    return dashboardPage();
+    return loggedMainPage();
   }
 
   @override
@@ -533,9 +533,9 @@ class _$DashboardPageTypeImpl implements DashboardPageType {
     TResult? Function()? loadingPage,
     TResult? Function(NewItemModel newItemModel)? newsDetailPage,
     TResult? Function()? registerPage,
-    TResult? Function()? dashboardPage,
+    TResult? Function()? loggedMainPage,
   }) {
-    return dashboardPage?.call();
+    return loggedMainPage?.call();
   }
 
   @override
@@ -544,11 +544,11 @@ class _$DashboardPageTypeImpl implements DashboardPageType {
     TResult Function()? loadingPage,
     TResult Function(NewItemModel newItemModel)? newsDetailPage,
     TResult Function()? registerPage,
-    TResult Function()? dashboardPage,
+    TResult Function()? loggedMainPage,
     required TResult orElse(),
   }) {
-    if (dashboardPage != null) {
-      return dashboardPage();
+    if (loggedMainPage != null) {
+      return loggedMainPage();
     }
     return orElse();
   }
@@ -559,9 +559,9 @@ class _$DashboardPageTypeImpl implements DashboardPageType {
     required TResult Function(LoadingPageType value) loadingPage,
     required TResult Function(NewsDetailPageType value) newsDetailPage,
     required TResult Function(RegisterPageType value) registerPage,
-    required TResult Function(DashboardPageType value) dashboardPage,
+    required TResult Function(LoggedMainPageType value) loggedMainPage,
   }) {
-    return dashboardPage(this);
+    return loggedMainPage(this);
   }
 
   @override
@@ -570,9 +570,9 @@ class _$DashboardPageTypeImpl implements DashboardPageType {
     TResult? Function(LoadingPageType value)? loadingPage,
     TResult? Function(NewsDetailPageType value)? newsDetailPage,
     TResult? Function(RegisterPageType value)? registerPage,
-    TResult? Function(DashboardPageType value)? dashboardPage,
+    TResult? Function(LoggedMainPageType value)? loggedMainPage,
   }) {
-    return dashboardPage?.call(this);
+    return loggedMainPage?.call(this);
   }
 
   @override
@@ -581,18 +581,18 @@ class _$DashboardPageTypeImpl implements DashboardPageType {
     TResult Function(LoadingPageType value)? loadingPage,
     TResult Function(NewsDetailPageType value)? newsDetailPage,
     TResult Function(RegisterPageType value)? registerPage,
-    TResult Function(DashboardPageType value)? dashboardPage,
+    TResult Function(LoggedMainPageType value)? loggedMainPage,
     required TResult orElse(),
   }) {
-    if (dashboardPage != null) {
-      return dashboardPage(this);
+    if (loggedMainPage != null) {
+      return loggedMainPage(this);
     }
     return orElse();
   }
 }
 
-abstract class DashboardPageType implements ScreenType {
-  const factory DashboardPageType() = _$DashboardPageTypeImpl;
+abstract class LoggedMainPageType implements ScreenType {
+  const factory LoggedMainPageType() = _$LoggedMainPageTypeImpl;
 }
 
 /// @nodoc

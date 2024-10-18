@@ -10,6 +10,6 @@ class RegisterCubit extends Cubit<RegisterState> {
   RegisterCubit({required this.navigator}) : super(const RegisterState());
 
   void onTapRegister() {
-    navigator.push(screen: const ScreenType.dashboardPage());
+    navigator.push(screen: const ScreenType.loggedMainPage());
   }
 }

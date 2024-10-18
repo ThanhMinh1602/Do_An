@@ -181,7 +181,7 @@ class _ProtocoFlashLoansWidgetState extends State<DtProtocoFlashLoansWidget>
 
   Widget _buildFlashLoansView() {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 208.w),
+      padding: const EdgeInsets.symmetric(horizontal: 208),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -194,15 +194,15 @@ class _ProtocoFlashLoansWidgetState extends State<DtProtocoFlashLoansWidget>
           Text(
             'Flash Loans',
             textAlign: TextAlign.center,
-            style: AppStyle.textTitle,
+            style: DesktopAppStyle.semiboldStyle_28,
           ),
           const SizedBox(height: 8.0),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 126.0.w),
+            padding: const EdgeInsets.symmetric(horizontal: 126.0),
             child: Text(
               'Flash Loans are special transactions that allow the borrowing of an asset, as long as the borrowed amount (and a fee) is returned before the end of the transaction (also called One Block Borrows). These transactions do not require a user to supply collateral prior to engaging in the transaction. There is no real world analogy to Flash Loans, so it requires some basic understanding of how state is managed within blocks in blockchains.',
               textAlign: TextAlign.center,
-              style: AppStyle.regular_14,
+              style: DesktopAppStyle.regularStyle_14,
             ),
           ),
           const SizedBox(height: 24.0),
@@ -217,88 +217,41 @@ class _ProtocoFlashLoansWidgetState extends State<DtProtocoFlashLoansWidget>
     );
   }
 
-  Widget _buildProtocolGridView() {
-    return GridView.builder(
-      physics: const NeverScrollableScrollPhysics(),
-      shrinkWrap: true,
-      itemCount: protocls.length,
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        mainAxisSpacing: 24,
-        crossAxisSpacing: 24,
-        childAspectRatio: 1.15,
-      ),
-      itemBuilder: (context, index) {
-        final data = protocls[index];
-        return CardCustom(
-          imageWidth: 68.0,
-          imageHeight: 48.0,
-          title: data.title,
-          content: data.content,
-          image: data.imagePath,
-        );
-      },
-    );
-  }
-
   Widget _buildFlashLoansGridView() {
-    final data = flashLoans;
     return Column(
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CardCustom(
-              width: 315,
-              titleStyle: AppStyle.bold_20,
-              contentStyle: AppStyle.regular_14,
-              title: data[0].title,
-              content: data[0].content,
-              image: '',
-            ),
+            _buildCardItem(flashLoansIndex: 0),
             const SizedBox(width: 24.0),
-            CardCustom(
-              width: 315,
-              titleStyle: AppStyle.bold_20,
-              contentStyle: AppStyle.regular_14,
-              title: data[0].title,
-              content: data[0].content,
-              image: '',
-            ),
+            _buildCardItem(flashLoansIndex: 1),
             const SizedBox(width: 24.0),
-            CardCustom(
-              width: 315,
-              titleStyle: AppStyle.bold_20,
-              contentStyle: AppStyle.regular_14,
-              title: data[0].title,
-              content: data[0].content,
-              image: '',
-            )
+            _buildCardItem(flashLoansIndex: 2)
           ],
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CardCustom(
-              width: 315,
-              titleStyle: AppStyle.bold_20,
-              contentStyle: AppStyle.regular_14,
-              title: data[0].title,
-              content: data[0].content,
-              image: '',
-            ),
+            _buildCardItem(flashLoansIndex: 3),
             const SizedBox(width: 24.0),
-            CardCustom(
-              width: 315,
-              titleStyle: AppStyle.bold_20,
-              contentStyle: AppStyle.regular_14,
-              title: data[0].title,
-              content: data[0].content,
-              image: '',
-            ),
+            _buildCardItem(flashLoansIndex: 4)
           ],
         )
       ],
+    );
+  }
+
+  CardCustom _buildCardItem({required int flashLoansIndex}) {
+    return CardCustom(
+      width: 314.67,
+      height: 186,
+      margin: const EdgeInsets.all(0),
+      titleStyle: DesktopAppStyle.boldStyle_20,
+      contentStyle: DesktopAppStyle.regularStyle_14,
+      title: flashLoans[flashLoansIndex].title,
+      content: flashLoans[flashLoansIndex].content,
+      image: '',
     );
   }
 }

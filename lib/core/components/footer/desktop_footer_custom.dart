@@ -48,7 +48,7 @@ class DesktopFooterCustom extends StatelessWidget {
                 const SizedBox(height: 32),
                 const FooterLinks(),
                 const SizedBox(height: 32),
-                const SocialIcons(),
+                const SocialIcons(isDesktop: true),
                 const SizedBox(height: 24),
                 Divider(color: AppColor.whiteColor.withOpacity(0.1)),
                 const SizedBox(height: 24),

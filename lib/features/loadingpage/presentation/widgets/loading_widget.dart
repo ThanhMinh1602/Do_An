@@ -1,6 +1,5 @@
 import 'package:do_an_flutter/core/components/blur/circle_blue_blur.dart';
 import 'package:do_an_flutter/core/components/blur/circle_pink_blur.dart';
-import 'package:do_an_flutter/core/components/blur/rectangle_blur.dart';
 import 'package:do_an_flutter/core/components/footer/desktop_footer_custom.dart';
 import 'package:do_an_flutter/core/components/footer/mobile_footer_custom.dart';
 import 'package:do_an_flutter/core/components/rectangle/rectangle_backgroud.dart';
@@ -20,10 +19,9 @@ import 'package:do_an_flutter/features/loadingpage/presentation/widgets/mobile/g
 import 'package:do_an_flutter/features/loadingpage/presentation/widgets/mobile/power_lowest_network_fees_widget.dart';
 import 'package:do_an_flutter/features/loadingpage/presentation/widgets/mobile/protoco_flash_loans_widget.dart';
 import 'package:do_an_flutter/features/loadingpage/presentation/widgets/mobile/trusted_by_teams_at_widget.dart';
-import 'package:do_an_flutter/features/loadingpage/presentation/widgets/mobile/video_tutorials_widget.dart';
+import 'package:do_an_flutter/features/loadingpage/presentation/widgets/mobile/flash_loans_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoadingWidget extends StatelessWidget {
   const LoadingWidget({super.key});
@@ -88,7 +86,7 @@ class LoadingWidget extends StatelessWidget {
                       ArbitragePlatform(
                         onTapJoinNow: onTapJoinNow,
                       ),
-                      const VideoTutorialsWidget(),
+                      const FlashLoansService(),
                       const GetInstantProfitsWidget(),
                       const PowerLowestNetworkFeesWidget(),
                       const ArbitrageOpportunitiesWidget(),

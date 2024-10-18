@@ -1,5 +1,6 @@
 import 'package:do_an_flutter/core/components/appbar/app_bar_desktop.dart';
 import 'package:do_an_flutter/core/components/appbar/app_bar_mobile.dart';
+import 'package:do_an_flutter/core/components/menu/loadingpage_menu.dart';
 import 'package:do_an_flutter/core/constants/app_color.dart';
 import 'package:do_an_flutter/core/extensions/builder_context_extension.dart';
 import 'package:do_an_flutter/core/utils/font_weight.dart';
@@ -24,24 +25,8 @@ class MainWidget extends StatelessWidget {
       builder: (context, state) {
         return Scaffold(
           backgroundColor: AppColor.backgroundColor,
-          // appBar: context.isDesktop
-          //     ? AppBarDesktop(
-          //         pageIndex: state.pageIndex,
-          //       )
-          //     : AppBarMobile(context),
-          drawer: Drawer(
-            backgroundColor: AppColor.grey900,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(0),
-            ),
-            width: 300.w,
-            child: Column(
-              children: [
-                _buildHeader(),
-                _buildMenuList(context),
-              ],
-            ),
-          ),
+          appBar: context.isDesktop ? null : AppBarMobile(context),
+          drawer: const LoadingpageMenu(),
           body: Stack(
             children: [
               IndexedStack(
@@ -55,95 +40,20 @@ class MainWidget extends StatelessWidget {
                   Container(color: Colors.pink),
                 ],
               ),
-              Positioned(
-                top: 0,
-                left: 0,
-                right: 0,
-                child: AppBarDesktop(
-                  pageIndex: state.pageIndex,
+              if (context
+                  .isDesktop) 
+                Positioned(
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  child: AppBarDesktop(
+                    pageIndex: state.pageIndex,
+                  ),
                 ),
-              ),
             ],
           ),
         );
       },
-    );
-  }
-
-  Widget _buildHeader() {
-    return Container(
-      width: double.infinity,
-      padding: EdgeInsets.symmetric(horizontal: 28.0.w, vertical: 16.0.h),
-      alignment: Alignment.centerLeft,
-      color: AppColor.grey800,
-      child: SvgPicture.asset(
-        Assets.icons.logo,
-        width: 48.0.w,
-        height: 48.0.w,
-      ),
-    );
-  }
-
-  Widget _buildMenuList(BuildContext context) {
-    return ListView.separated(
-      itemCount: MenuModel.menuLists.length,
-      shrinkWrap: true,
-      padding: EdgeInsets.all(16.0.w),
-      separatorBuilder: (context, index) => SizedBox(height: 8.0.h),
-      itemBuilder: (context, index) {
-        final menuItem = MenuModel.menuLists[index];
-        return BlocBuilder<MainCubit, MainState>(
-          builder: (context, state) {
-            return _buildDrawerItem(
-                iconPath: menuItem.iconPath,
-                text: menuItem.text,
-                isSelected: state.pageIndex == index,
-                onTap: () {
-                  context.read<MainCubit>().onChangePage(index);
-                  context.getNavigator.pop();
-                });
-          },
-        );
-      },
-    );
-  }
-
-  Widget _buildDrawerItem({
-    required String iconPath,
-    required String text,
-    required bool isSelected,
-    void Function()? onTap,
-  }) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        width: double.infinity,
-        padding: EdgeInsets.symmetric(vertical: 12.0.h, horizontal: 20.0.w),
-        decoration: BoxDecoration(
-          gradient: isSelected ? AppColor.buildGradient() : null,
-          borderRadius: BorderRadius.circular(14.0),
-        ),
-        child: Row(
-          children: [
-            SvgPicture.asset(
-              iconPath,
-              width: 28.0.w,
-              color: AppColor.whiteColor,
-            ),
-            spaceW20,
-            Expanded(
-              child: Text(
-                text,
-                style: TextStyle(
-                  fontSize: 16.0.sp,
-                  fontWeight: semibold,
-                  color: AppColor.whiteColor,
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
     );
   }
 }

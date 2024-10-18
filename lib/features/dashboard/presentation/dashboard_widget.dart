@@ -1,10 +1,8 @@
 import 'dart:async';
 
 import 'package:do_an_flutter/core/components/background/background_custom.dart';
-import 'package:do_an_flutter/core/components/bottom_sheets/bottom_sheets_custom.dart';
 import 'package:do_an_flutter/core/components/bottombar/bottom_bar_custom.dart';
 import 'package:do_an_flutter/core/components/card/gradient_container_custom.dart';
-import 'package:do_an_flutter/core/components/tabbar/tab_bar_custom.dart';
 import 'package:do_an_flutter/core/constants/app_style.dart';
 import 'package:do_an_flutter/core/utils/dimensions.dart';
 import 'package:do_an_flutter/core/utils/scroll_utils.dart';
@@ -13,13 +11,8 @@ import 'package:do_an_flutter/features/dashboard/presentation/widgets/crypto_car
 import 'package:do_an_flutter/features/dashboard/presentation/widgets/daily_and_total_funds_widget.dart';
 import 'package:do_an_flutter/features/dashboard/presentation/widgets/header_widget.dart';
 import 'package:do_an_flutter/features/dashboard/presentation/widgets/my_statistics_widget.dart';
-import 'package:do_an_flutter/features/dashboard/presentation/widgets/trade_table_widget.dart';
-import 'package:do_an_flutter/features/dashboard/presentation/widgets/topup_table_widget.dart';
-import 'package:do_an_flutter/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
-import '../../../core/components/appbar/app_bar_mobile.dart';
 import '../../../core/constants/app_color.dart';
 
 class DashboardWidget extends StatefulWidget {
@@ -59,43 +52,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColor.appBarColor,
-      appBar: AppBarMobile(
-        context,
-        actions: [
-          IconButton(
-            onPressed: () {
-              BottomSheetsCustom.showBottomSheet(
-                context,
-                title: 'History',
-                padding: EdgeInsets.only(top: 24.0.h, bottom: 10.0.h),
-                child: DefaultTabController(
-                  length: 2,
-                  child: Column(
-                    children: [
-                      CustomTabBar(
-                        tabs: const ['Trade', 'Top Up'],
-                        borderRadius: 35.0.w,
-                      ),
-                      spaceH24,
-                      const Expanded(
-                        child: TabBarView(
-                          children: [
-                            TradeTableWidget(),
-                            TopupTableWidget(),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              );
-            },
-            icon: SvgPicture.asset(Assets.icons.historyIconSvg,
-                width: 28.0.w, height: 28.0.w),
-          )
-        ],
-      ),
+      backgroundColor: AppColor.backgroundColor,
       bottomNavigationBar: _buildCoinPriceBottomBar(),
       body: BackgroundCustom(
         child: ListView(

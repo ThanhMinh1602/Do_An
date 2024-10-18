@@ -13,8 +13,10 @@ class ExploreButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomButton(
+        
       btnTxt: title ?? 'EXPLORE',
       width: title != null ? 128.w : 153.w,
+      height: 48.0.h,
       icon: Assets.icons.arrowRightFill.path,
       gradient: AppColor.buildGradient(),
       onTap: onTap,

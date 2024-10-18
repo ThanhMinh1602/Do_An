@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:do_an_flutter/core/components/blur/custom_blur.dart';
 import 'package:do_an_flutter/core/components/carousel_slider/carousel_slider_custom.dart';
 import 'package:do_an_flutter/core/components/footer/desktop_footer_custom.dart';
 import 'package:do_an_flutter/core/components/text/gradient_text.dart';
@@ -19,13 +20,12 @@ class NewsDesktopWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
+      padding: const EdgeInsets.only(top: 92.0),
       children: [
-        GradientText(text: 'News Desktop', gradient: AppColor.buildGradient()),
-        const SizedBox(height: 40.0),
         _buildSlider(context),
         const SizedBox(height: 40.0),
         buildListNew(),
-             const SizedBox(height: 40.0),
+        const SizedBox(height: 40.0),
         const DesktopFooterCustom()
       ],
     );
@@ -33,14 +33,14 @@ class NewsDesktopWidget extends StatelessWidget {
 
   Widget buildListNew() {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 24.0, horizontal: 336.w),
+      padding: const EdgeInsets.symmetric(horizontal: 336.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           GradientText(
             text: 'Latest News',
             gradient: AppColor.buildGradient(),
-            style: AppStyle.semibold_28,
+            style: DesktopAppStyle.semiboldStyle_28,
           ),
           const SizedBox(height: 24),
           GridView.builder(
@@ -68,14 +68,14 @@ class NewsDesktopWidget extends StatelessWidget {
                   const SizedBox(height: 242 * (16 / 242)),
                   Text(
                     data.title,
-                    style: AppStyle.semibold_14,
+                    style: DesktopAppStyle.semiboldStyle_14,
                     overflow: TextOverflow.ellipsis,
                     maxLines: 2,
                   ),
                   const SizedBox(height: 242 * (8 / 242)),
                   Text(
                     data.title,
-                    style: AppStyle.regular_14,
+                    style: DesktopAppStyle.regularStyle_14,
                     overflow: TextOverflow.ellipsis,
                     maxLines: 1,
                   ),
@@ -95,11 +95,11 @@ class NewsDesktopWidget extends StatelessWidget {
 
   Widget _buildSlider(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 24.0, horizontal: 336.w),
+      padding: const EdgeInsets.symmetric(horizontal: 336).copyWith(top: 24.0),
       child: CarouselSliderCustom(
         itemCount: 5,
         aspectRatio: context.getWidth / 676,
-        viewportFraction: 0.8,
+        viewportFraction: 0.83,
         itemBuilder: (context, index, realIndex) {
           final data = state.newItemModels[index];
           return Stack(
@@ -116,37 +116,36 @@ class NewsDesktopWidget extends StatelessWidget {
                 bottom: 0,
                 left: 0,
                 right: 0,
-                child: ClipRect(
-                  child: BackdropFilter(
-                    filter: ImageFilter.blur(sigmaX: 4, sigmaY: 4),
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 12.0, horizontal: 24.0),
-                      decoration: BoxDecoration(
-                        gradient: AppColor.buildGradient(
-                            begin: Alignment.bottomCenter,
-                            end: Alignment.topCenter,
-                            colors: [
-                              AppColor.backgroundColor.withOpacity(0.7),
-                              AppColor.backgroundColor.withOpacity(0),
-                            ]),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            data.title,
-                            overflow: TextOverflow.ellipsis,
-                            maxLines: 1,
-                            style: AppStyle.semibold_16,
-                          ),
-                          _buildTimeAndReadMore(
-                            onTapReadMore: () =>
-                                context.read<NewsCubit>().newDetail(data),
-                          )
-                        ],
-                      ),
+                child: CustomBlur(
+                  blur: 4,
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 12.0, horizontal: 24.0),
+                    decoration: BoxDecoration(
+                      gradient: AppColor.buildGradient(
+                          begin: Alignment.bottomCenter,
+                          end: Alignment.topCenter,
+                          colors: [
+                            AppColor.backgroundColor.withOpacity(0.7),
+                            AppColor.backgroundColor.withOpacity(0),
+                          ]),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          data.title,
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 1,
+                          style: DesktopAppStyle.semiboldStyle_16,
+                        ),
+                        const SizedBox(height: 4.0),
+                        _buildTimeAndReadMore(
+                          onTapReadMore: () =>
+                              context.read<NewsCubit>().newDetail(data),
+                        )
+                      ],
                     ),
                   ),
                 ),
@@ -163,12 +162,14 @@ class NewsDesktopWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text('8 Hours ago',
-            style: AppStyle.regular_14.copyWith(color: AppColor.grey300)),
+            style: DesktopAppStyle.regularStyle_14
+                .copyWith(color: AppColor.grey500)),
         InkWell(
           onTap: onTapReadMore,
           child: Text(
             'Read more',
-            style: AppStyle.bold_14.copyWith(color: AppColor.primaryColor),
+            style:
+                DesktopAppStyle.semiboldStyle_14.copyWith(color: AppColor.primaryColor),
           ),
         )
       ],

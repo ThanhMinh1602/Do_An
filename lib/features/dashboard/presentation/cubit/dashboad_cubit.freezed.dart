@@ -15,13 +15,23 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$DashboadState {}
+mixin _$DashboadState {
+  int get pageIndex => throw _privateConstructorUsedError;
+
+  /// Create a copy of DashboadState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $DashboadStateCopyWith<DashboadState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
 
 /// @nodoc
 abstract class $DashboadStateCopyWith<$Res> {
   factory $DashboadStateCopyWith(
           DashboadState value, $Res Function(DashboadState) then) =
       _$DashboadStateCopyWithImpl<$Res, DashboadState>;
+  @useResult
+  $Res call({int pageIndex});
 }
 
 /// @nodoc
@@ -36,13 +46,29 @@ class _$DashboadStateCopyWithImpl<$Res, $Val extends DashboadState>
 
   /// Create a copy of DashboadState
   /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? pageIndex = null,
+  }) {
+    return _then(_value.copyWith(
+      pageIndex: null == pageIndex
+          ? _value.pageIndex
+          : pageIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$InitialImplCopyWith<$Res> {
+abstract class _$$InitialImplCopyWith<$Res>
+    implements $DashboadStateCopyWith<$Res> {
   factory _$$InitialImplCopyWith(
           _$InitialImpl value, $Res Function(_$InitialImpl) then) =
       __$$InitialImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({int pageIndex});
 }
 
 /// @nodoc
@@ -55,28 +81,65 @@ class __$$InitialImplCopyWithImpl<$Res>
 
   /// Create a copy of DashboadState
   /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? pageIndex = null,
+  }) {
+    return _then(_$InitialImpl(
+      pageIndex: null == pageIndex
+          ? _value.pageIndex
+          : pageIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$InitialImpl implements _Initial {
-  const _$InitialImpl();
+  const _$InitialImpl({this.pageIndex = 0});
+
+  @override
+  @JsonKey()
+  final int pageIndex;
 
   @override
   String toString() {
-    return 'DashboadState()';
+    return 'DashboadState(pageIndex: $pageIndex)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$InitialImpl &&
+            (identical(other.pageIndex, pageIndex) ||
+                other.pageIndex == pageIndex));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, pageIndex);
+
+  /// Create a copy of DashboadState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>
+      __$$InitialImplCopyWithImpl<_$InitialImpl>(this, _$identity);
 }
 
 abstract class _Initial implements DashboadState {
-  const factory _Initial() = _$InitialImpl;
+  const factory _Initial({final int pageIndex}) = _$InitialImpl;
+
+  @override
+  int get pageIndex;
+
+  /// Create a copy of DashboadState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -21,19 +21,19 @@ class AppBarMobile extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: AppColor.appBarColor,
+      backgroundColor: const Color(0xff141414),
       leading: IconButton(
         onPressed: () => Scaffold.of(context).openDrawer(),
         icon: SvgPicture.asset(
           Assets.images.iconMenu,
-          width: 28.0,
-          height: 28.0,
+          width: 28.0.w,
+          height: 28.0.w,
         ),
       ),
       title: SvgPicture.asset(
         Assets.icons.logo,
         width: 36.0.w,
-        height: 36.0.h,
+        height: 36.0.w,
       ),
       centerTitle: true,
       actions: [
@@ -41,8 +41,10 @@ class AppBarMobile extends StatelessWidget implements PreferredSizeWidget {
             [
               CustomButton(
                 btnTxt: 'Connect Wallet',
+                borderGradient: AppColor.buildGradient(opacity: 0.3),
+                gradient: AppColor.buildGradient(opacity: 0.2),
                 width: 128.0.w,
-                height: 34.h,
+                height: 24.h,
                 onTap: () => BottomSheetsCustom.showBottomSheet(
                   context,
                   height: 406.h,

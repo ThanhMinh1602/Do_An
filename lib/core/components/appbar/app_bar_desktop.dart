@@ -61,8 +61,8 @@ class AppBarDesktop extends StatelessWidget {
       btnTxt: 'Connect Wallet',
       width: 143.0,
       height: 44.0,
-      textStyle:
-          DesktopAppStyle.semibold_14.copyWith(color: AppColor.primaryColor),
+      textStyle: DesktopAppStyle.semiboldStyle_14
+          .copyWith(color: AppColor.primaryColor),
       borderGradient: AppColor.buildGradient(opacity: 0.3),
       gradient: AppColor.buildGradient(opacity: 0.2),
       onTap: () {
@@ -119,7 +119,7 @@ class AppBarDesktop extends StatelessWidget {
           ConnectWalletButtonCustom(
             iconHeight: 32,
             iconWidth: 32,
-            style: DesktopAppStyle.semibold_16,
+            style: DesktopAppStyle.semiboldStyle_16,
             padding:
                 const EdgeInsets.symmetric(vertical: 12.0, horizontal: 16.0),
             iconPath: wallet['icon']!,

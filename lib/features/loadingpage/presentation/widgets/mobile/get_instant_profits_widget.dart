@@ -59,7 +59,7 @@ class _GetInstantProfitsWidgetState extends State<GetInstantProfitsWidget> {
     final double screenHeight = MediaQuery.of(context).size.height;
 
     return SizedBox(
-      height: screenHeight,
+      height: 720.h,
       width: screenWidth,
       child: PageView.builder(
           controller: pageController,
@@ -81,95 +81,113 @@ class _GetInstantProfitsWidgetState extends State<GetInstantProfitsWidget> {
       required String imagePath,
       required String title,
       required String content}) {
-    return Container(
-      padding: EdgeInsets.only(top: 46.0.h),
-      child: Stack(
-        children: [
-          Positioned(
-            top: 162.87.h,
+    return Stack(
+      children: [
+        Positioned.fill(
+          child: Image.asset(Assets.images.getInstantProfitsImage.path,
+              fit: BoxFit.fill),
+        ),
+        Positioned(
             left: 0,
             right: 0,
-            child: const CircleGradientBlur(),
-          ),
-          Positioned(
-            left: 0,
-            right: 0,
+            top: 48.h,
             child: Column(
               children: [
                 GradientText(
                   text: "Get Instant Profits At",
-                  style: AppStyle.textHeader,
+                  style: AppStyle.semiboldText_32,
                   gradient: AppColor.buildGradient(),
                 ),
                 spaceH12,
                 SvgPicture.asset(
                   Assets.images.metamaskSeeklogo,
-                  width: 203.66.w,
+                  height: 44.87.h,
                 ),
-                spaceH24,
-                Image.asset(
-                  imagePath,
-                  width: 358.0.w,
-                  height: 242.h,
-                  fit: BoxFit.fill,
-                )
               ],
-            ),
-          ),
-          Positioned(
-            bottom: 0,
-            left: 0,
-            right: 0,
-            child: ContainerCustomPaint(
-              width: screenWidth,
-              height: (screenHeight < 700)
-                  ? screenHeight * 0.56
-                  : screenHeight * 0.5,
-              child: Row(
-                children: [
-                  const PageNavigationButton(),
-                  spaceW30,
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        spaceH36,
-                        Text(title,
-                            textAlign: TextAlign.center,
-                            style: (screenHeight < 700)
-                                ? AppStyle.semibold_20
-                                : AppStyle.textTitle),
-                        SizedBox(height: 8.0.h),
-                        Text(
-                          content,
-                          textAlign: TextAlign.center,
-                          style: (screenHeight < 700)
-                              ? AppStyle.textContentScreenHeight700
-                              : AppStyle.regular_14,
-                        ),
-                        const Spacer(),
-                        PageIndicatorCustom(
-                          pageController: pageController,
-                          count: instantProfits.length,
-                        ),
-                        spaceH24,
-                        ExploreButton(
-                          onTap: () {},
-                        ),
-                        SizedBox(height: 52.0.h)
-                      ],
-                    ),
-                  ),
-                  spaceW30,
-                  const PageNavigationButton(
-                    isRight: true,
-                  ),
-                ],
-              ),
-            ),
-          )
-        ],
-      ),
+            )),
+        Positioned.fill(
+          child: Image.asset(Assets.images.getInstantProfitsImage.path,
+              fit: BoxFit.fill),
+        ),
+        // Positioned(
+        //   left: 0,
+        //   right: 0,
+        //   child:
+        // Column(
+        //     children: [
+        //       GradientText(
+        //         text: "Get Instant Profits At",
+        //         style: AppStyle.textHeader,
+        //         gradient: AppColor.buildGradient(),
+        //       ),
+        //       spaceH12,
+        //       SvgPicture.asset(
+        //         Assets.images.metamaskSeeklogo,
+        //         width: 203.66.w,
+        //       ),
+        //       spaceH24,
+        //       Image.asset(
+        //         imagePath,
+        //         width: 358.0.w,
+        //         height: 242.h,
+        //         fit: BoxFit.fill,
+        //       )
+        //     ],
+        //   ),
+        // ),
+        // Positioned(
+        //   bottom: 0,
+        //   left: 0,
+        //   right: 0,
+        //   child: ContainerCustomPaint(
+        //     width: screenWidth,
+        //     height: (screenHeight < 700)
+        //         ? screenHeight * 0.56
+        //         : screenHeight * 0.5,
+        //     child: Row(
+        //       children: [
+        //         const PageNavigationButton(),
+        //         spaceW30,
+        //         Expanded(
+        //           child: Column(
+        //             crossAxisAlignment: CrossAxisAlignment.center,
+        //             children: [
+        //               spaceH36,
+        //               Text(title,
+        //                   textAlign: TextAlign.center,
+        //                   style: (screenHeight < 700)
+        //                       ? AppStyle.semibold_20
+        //                         : AppStyle.textTitle),
+        //               SizedBox(height: 8.0.h),
+        //               Text(
+        //                 content,
+        //                 textAlign: TextAlign.center,
+        //                 style: (screenHeight < 700)
+        //                     ? AppStyle.textContentScreenHeight700
+        //                     : AppStyle.regular_14,
+        //               ),
+        //               const Spacer(),
+        //               PageIndicatorCustom(
+        //                 pageController: pageController,
+        //                 count: instantProfits.length,
+        //               ),
+        //               spaceH24,
+        //               ExploreButton(
+        //                 onTap: () {},
+        //               ),
+        //               SizedBox(height: 52.0.h)
+        //             ],
+        //           ),
+        //         ),
+        //         spaceW30,
+        //         const PageNavigationButton(
+        //           isRight: true,
+        //         ),
+        //       ],
+        //     ),
+        //   ),
+        // )
+      ],
     );
   }
 }

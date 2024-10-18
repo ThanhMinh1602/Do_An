@@ -32,7 +32,7 @@ class PopUpHeader extends StatelessWidget {
               Text(
                 title,
                 style: (isDeskTop
-                        ? DesktopAppStyle.semibold_20
+                        ? DesktopAppStyle.semiboldStyle_14
                         : AppStyle.semibold_20)
                     .copyWith(
                   shadows: [

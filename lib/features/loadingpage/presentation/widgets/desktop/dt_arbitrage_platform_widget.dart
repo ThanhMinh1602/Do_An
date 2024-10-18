@@ -145,7 +145,7 @@ class DtArbitragePlatformWidget extends StatelessWidget {
         Text(
           "Automated Operation By Smart Contract",
           textAlign: TextAlign.center,
-          style:DesktopAppStyle.mediumStyle_28,
+          style: DesktopAppStyle.mediumStyle_28,
         ),
         dtSpaceH24,
         DtExploreButton(
@@ -153,7 +153,7 @@ class DtArbitragePlatformWidget extends StatelessWidget {
           onTap: onTapJoinNow,
         ),
         dtSpaceH28,
-        const SocialIcons(),
+        const SocialIcons(isDesktop: true),
       ],
     );
   }

@@ -1,5 +1,6 @@
 import 'package:do_an_flutter/core/components/card/model/information.dart';
 import 'package:do_an_flutter/core/components/gradient_icon_custom.dart';
+import 'package:do_an_flutter/core/components/social_icon_custom.dart';
 import 'package:do_an_flutter/core/components/text/gradient_text.dart';
 import 'package:do_an_flutter/core/constants/app_color.dart';
 import 'package:do_an_flutter/core/constants/app_style.dart';
@@ -18,10 +19,11 @@ class ArbitragePlatform extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        spaceH52,
         _buildTitle(),
-        spaceH10,
+        spaceH24,
+        const SocialIcons(isDesktop: false),
         _buildBanner(),
-        spaceH20,
         GridView.builder(
           itemCount: profileUtils.length,
           shrinkWrap: true,
@@ -37,7 +39,10 @@ class ArbitragePlatform extends StatelessWidget {
             return SizedBox(
               height: 206.0.h,
               child: Stack(
-                children: [_buildGridCard(index), _buildGridIcon(index)],
+                children: [
+                  _buildGridCard(index),
+                  _buildGridIcon(index),
+                ],
               ),
             );
           },
@@ -89,20 +94,14 @@ class ArbitragePlatform extends StatelessWidget {
             Text(
                 textAlign: TextAlign.center,
                 profileUtils[index].title,
-                style: TextStyle(
-                    color: AppColor.primaryColor,
-                    fontSize: 15.sp,
-                    fontWeight: FontWeight.w600)),
+                style: AppStyle.semiboldText_16
+                    .copyWith(color: AppColor.primaryColor)),
             spaceH4,
             Text(
                 textAlign: TextAlign.center,
                 profileUtils[index].content,
                 maxLines: 4,
-                style: TextStyle(
-                  overflow: TextOverflow.ellipsis,
-                  color: Colors.white,
-                  fontSize: 12.sp,
-                ))
+                style: AppStyle.regularText_14)
           ],
         ),
       ),
@@ -114,14 +113,14 @@ class ArbitragePlatform extends StatelessWidget {
       children: [
         GradientText(
           text: "The World’s Best ",
-          style: AppStyle.textHeader,
+          style: AppStyle.semiboldText_40,
           gradient: AppColor.buildGradient(),
         ),
         spaceH4,
         Center(
           child: GradientText(
             text: "Arbitrage Platform",
-            style: AppStyle.textHeader,
+            style: AppStyle.semiboldText_40,
             gradient: AppColor.buildGradient(),
           ),
         ),
@@ -129,9 +128,9 @@ class ArbitragePlatform extends StatelessWidget {
         Text(
           "Automated Operation By Smart Contract",
           textAlign: TextAlign.center,
-          style: TextStyle(color: Colors.white, fontSize: 18.sp),
+          style: AppStyle.regularText_18,
         ),
-        spaceH8,
+        spaceH24,
         ExploreButton(
           title: 'Join Now',
           onTap: onTapJoinNow,

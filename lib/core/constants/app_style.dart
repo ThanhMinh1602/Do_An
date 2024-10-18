@@ -5,7 +5,56 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppStyle {
   AppStyle._();
+  static TextStyle semiBoldText_28 = TextStyle(
+    fontSize:
+        28.0.sp, // Sử dụng .sp để tự động điều chỉnh kích thước theo màn hình
+    fontWeight: FontWeight.w600, // font-weight
+    height: 34.0.h / 28.0.sp, // Sử dụng .h để điều chỉnh chiều cao dòng
+    letterSpacing: -0.12, // letter-spacing
+    color: Colors.black, // Màu sắc văn bản (có thể thay đổi theo yêu cầu)
+  );
+  static TextStyle semiboldText_40 = TextStyle(
+      fontSize: 40.0.sp,
+      fontWeight: FontWeight.w600,
+      height: 44.0.h / 40.0.sp,
+      letterSpacing: -0.16.w,
+      color: AppColor.whiteColor);
 
+  static TextStyle regularText_18 = TextStyle(
+    fontSize: 18.0.sp, // Font size với ScreenUtil
+    fontWeight: FontWeight.w400, // Font weight 400 (regular)
+    height: 24.0.h / 18.0.sp, // Line height với ScreenUtil
+    letterSpacing: -0.04.w, // Letter spacing với ScreenUtil
+
+    color: Colors.white, // Màu trắng mặc định cho text
+  );
+  static TextStyle semiBoldText_14 = TextStyle(
+    fontSize:
+        14.0.sp, // Sử dụng .sp để tự động điều chỉnh kích thước theo màn hình
+    fontWeight: FontWeight.w600, // font-weight
+    height: 18.0.h / 14.0.sp, // Sử dụng .h để điều chỉnh chiều cao dòng
+    color: Colors.white,
+  );
+  static TextStyle semiboldText_32 = TextStyle(
+    fontSize: 32.0.sp, // Font size với ScreenUtil
+    fontWeight: FontWeight.w600, // Font weight 600 (semibold)
+    height: 34.0.h / 32.0.sp, // Line height với ScreenUtil
+    letterSpacing: -0.12.w, // Letter spacing với ScreenUtil
+    color: Colors.white, // Màu trắng mặc định cho text
+  );
+  static TextStyle semiboldText_16 = TextStyle(
+    fontSize: 16.0.sp, // Font size với ScreenUtil
+    fontWeight: FontWeight.w600, // Font weight 600 (semibold)
+    height: 20.0.h / 16.0.sp, // Line height với ScreenUtil
+    color: Colors.white, // Màu trắng mặc định cho text
+  );
+  static TextStyle regularText_14 = TextStyle(
+    fontSize: 14.0.sp,
+    fontWeight: FontWeight.w400,
+    height: 18.0.h / 14.0.sp,
+    color: Colors.white,
+  );
+////////////////////////////////////////////////////////////////////////////////////////////
   // Header and description styles
   static TextStyle textHeader = TextStyle(
     fontSize: 40.sp,
@@ -163,6 +212,12 @@ class DesktopAppStyle {
     letterSpacing: 0.0, // Không có letter-spacing (hoặc thêm nếu cần)
     color: AppColor.whiteColor,
   );
+  TextStyle semiboldText_20 = TextStyle(
+    fontSize: 20.0, // Font size
+    fontWeight: FontWeight.w600, // Font weight 600 (semibold)
+    height: 24 / 20, // Line height (line-height: 24px với font-size: 20px)
+    letterSpacing: -0.08, // Letter spacing
+  );
 
   static TextStyle semiboldText_56 = const TextStyle(
     fontSize: 56.0, // Font-size
@@ -190,6 +245,14 @@ class DesktopAppStyle {
     height: 28.0 / 24.0, // Line-height (Tính toán tỷ lệ với font-size)
     letterSpacing: -0.1, // Letter-spacing
     color: AppColor.whiteColor,
+  );
+  static TextStyle semiBoldStyle_20 = TextStyle(
+    fontSize:
+        20.0.sp, // Sử dụng .sp để tự động điều chỉnh kích thước theo màn hình
+    fontWeight: FontWeight.w600, // font-weight
+    height: 24.0.h / 20.0.sp, // Sử dụng .h để điều chỉnh chiều cao dòng
+    letterSpacing: -0.08, // letter-spacing
+    color: Colors.white, // Màu sắc văn bản (có thể thay đổi theo yêu cầu)
   );
   static TextStyle semiboldStyle_18 = const TextStyle(
     fontSize: 18.0,
@@ -252,17 +315,6 @@ class DesktopAppStyle {
     height: 14.0 / 12.0, // Line-height (Tính toán tỷ lệ với font-size)
     color: AppColor.whiteColor,
   );
-
-  // Header and description styles
-  static TextStyle textHeader = const TextStyle(
-    fontSize: 40,
-    fontWeight: FontWeight.w600,
-  );
-
-  static TextStyle textDescription = const TextStyle(
-    fontSize: 18,
-    fontWeight: FontWeight.w400,
-  );
   static TextStyle regularStyle_14 = TextStyle(
       fontSize: 14.0, // Font-size
       fontWeight: regular, // Font-weight (Regular)
@@ -270,90 +322,5 @@ class DesktopAppStyle {
       letterSpacing: 0.0, // Không có letter-spacing (hoặc thêm nếu cần)
       color: AppColor.grey300);
 
-  static TextStyle textTitle = const TextStyle(
-    fontSize: 24.0,
-    fontWeight: FontWeight.w600,
-    color: AppColor.whiteColor,
-  );
-
-  static TextStyle textContentScreenHeight700 = TextStyle(
-    fontSize: 10.0,
-    fontWeight: FontWeight.w400,
-    color: AppColor.grey300,
-  );
-
-  // Regular styles
-  static TextStyle regular_28 = TextStyle(
-    fontSize: 28.0,
-    fontWeight: regular,
-    color: AppColor.grey300,
-  );
-
-  static TextStyle regular_20 = TextStyle(
-    fontSize: 20.0,
-    fontWeight: regular,
-    color: AppColor.grey300,
-  );
-  static TextStyle regular_18 = TextStyle(
-    fontSize: 18.0,
-    fontWeight: regular,
-    color: AppColor.grey300,
-  );
-  static TextStyle regular_16 = TextStyle(
-    fontSize: 16.0,
-    fontWeight: regular,
-    color: AppColor.grey300,
-  );
-  static TextStyle regular_14 = TextStyle(
-    fontSize: 14.0,
-    fontWeight: regular,
-    color: AppColor.grey300,
-  );
-
-  static TextStyle regular_12 = TextStyle(
-    fontSize: 12.0,
-    fontWeight: regular,
-    color: AppColor.grey500,
-  );
-
-  // Semi-bold styles
-  static TextStyle semibold_28 = const TextStyle(
-    fontSize: 28.0,
-    fontWeight: semibold,
-    color: AppColor.whiteColor,
-  );
-  static TextStyle semibold_24 = const TextStyle(
-    fontSize: 24.0,
-    fontWeight: semibold,
-    color: AppColor.whiteColor,
-  );
-
-  static TextStyle semibold_20 = const TextStyle(
-    fontSize: 20.0,
-    fontWeight: semibold,
-    color: AppColor.whiteColor,
-  );
-
-  static TextStyle semibold_18 = const TextStyle(
-    fontSize: 18.0,
-    fontWeight: semibold,
-    color: AppColor.whiteColor,
-  );
-
-  static TextStyle semibold_16 = const TextStyle(
-    fontSize: 16.0,
-    fontWeight: semibold,
-    color: AppColor.whiteColor,
-  );
-
-  static TextStyle semibold_14 = const TextStyle(
-    fontSize: 14.0,
-    fontWeight: semibold,
-    color: AppColor.whiteColor,
-  );
-  static TextStyle semibold_12 = const TextStyle(
-    fontSize: 14.0,
-    fontWeight: semibold,
-    color: AppColor.whiteColor,
-  );
+  // Header and description styles
 }
