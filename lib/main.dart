@@ -40,8 +40,8 @@ class MyApp extends StatelessWidget {
             useMaterial3: true,
             fontFamily: 'FSProDisplay',
           ),
-          // home: const MainPage(),
-          home: TradingPage(),
+          home: const MainPage(),
+          // home: TradingPage(),
         );
       },
     );

@@ -52,6 +52,7 @@ class _TradingMobileState extends State<TradingMobile>
   @override
   build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColor.backgroundColor,
       appBar: AppBarMobile(
         context,
         actions: [
@@ -65,11 +66,13 @@ class _TradingMobileState extends State<TradingMobile>
           ),
         ],
       ),
-      body: const Column(
-        children: [
-          TradingHeaderMobileWidget(),
-          TradingContentMobileWidget(),
-        ],
+      body: const SingleChildScrollView(
+        child: Column(
+          children: [
+            TradingHeaderMobileWidget(),
+            TradingContentMobileWidget(),
+          ],
+        ),
       ),
       bottomNavigationBar: _buildCoinPriceBottomBar(),
     );

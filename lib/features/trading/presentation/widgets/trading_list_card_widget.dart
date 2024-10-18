@@ -1,53 +1,64 @@
-import 'package:do_an_flutter/core/components/card/gradient_container_custom.dart';
+import 'package:do_an_flutter/core/components/card/crypto_pair_custom.dart';
+import 'package:do_an_flutter/core/constants/app_color.dart';
 import 'package:do_an_flutter/core/constants/app_style.dart';
-import 'package:do_an_flutter/core/utils/spaces.dart';
+import 'package:do_an_flutter/core/utils/font_weight.dart';
+import 'package:do_an_flutter/features/trading/data/arbitrage_opportunities_model.dart';
 import 'package:do_an_flutter/features/trading/data/card_model.dart';
+import 'package:do_an_flutter/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gradient_borders/box_borders/gradient_box_border.dart';
+import 'package:do_an_flutter/core/utils/spaces.dart';
 
 class TradingListCardWidget extends StatelessWidget {
   const TradingListCardWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final gradient = AppColor.buildGradient(opacity: 0.1);
     return SizedBox(
-      height: 160.0.h, // Đảm bảo đủ chiều cao cho nhiều hàng.
+      height: MediaQuery.of(context).size.height * 1.5,
       width: MediaQuery.of(context).size.width,
       child: GridView.builder(
-        padding: EdgeInsets.all(20.0.w),
+        shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
+        padding: EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 20.0.h),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2, // Mỗi hàng chứa 2 item.
-          crossAxisSpacing: 12.0.w, // Khoảng cách ngang giữa các item.
-          mainAxisSpacing: 12.0.h, // Khoảng cách dọc giữa các hàng.
-          childAspectRatio: 173.0 / 72.0, // Tỷ lệ chiều rộng / chiều cao.
+          crossAxisCount: 2,
+          crossAxisSpacing: 12.0.w,
+          mainAxisSpacing: 16.0.h,
+          childAspectRatio: 173 / 100,
         ),
-        itemCount: cards.length,
+        itemCount: arbitrageOpportunitiesList.length,
         itemBuilder: (context, index) {
-          return GradientContainerCustom(
-            height: 72.0.h,
-            width: 173.0.w,
+          return Container(
+            padding: EdgeInsets.symmetric(vertical: 6.0.h, horizontal: 12.0.w),
+            decoration: BoxDecoration(
+              gradient: gradient,
+              borderRadius: BorderRadius.circular(20.0.r),
+              border: GradientBoxBorder(gradient: gradient),
+            ),
             child: Column(
+              mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                spaceH8,
-                Row(
-                  children: [
-                    spaceW20,
-                    Text(
-                      cards[index].title,
-                      style: AppStyle.regular_12_grey300,
-                    ),
-                  ],
+                Text(
+                  arbitrageOpportunitiesList[index].title,
+                  style: TextStyle(
+                    fontSize: 12.sp,
+                    fontWeight: regular,
+                    color: AppColor.whiteColor,
+                  ),
                 ),
-                Row(
-                  children: [
-                    spaceW20,
-                    Text(
-                      cards[index].price,
-                      style: AppStyle.semibold_20,
-                    ),
-                  ],
+                spaceH4,
+                CryptoPairCustom(
+                  leftIcon: arbitrageOpportunitiesList[index].leftIconPath,
+                  rightIcon: arbitrageOpportunitiesList[index].rightIconPath,
+                ),
+                spaceH4,
+                Text(
+                  arbitrageOpportunitiesList[index].profit,
+                  style: AppStyle.bold_12,
                 ),
               ],
             ),

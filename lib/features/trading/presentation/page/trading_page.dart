@@ -16,7 +16,7 @@ class TradingPage extends StatelessWidget {
       child: ResponsiveSystem(
         mobile: TradingMobile(),
         desktop: TradingDesktop(),
-        tablet: TradingTab(),
+        tablet: TradingMobile(),
       ),
     );
   }

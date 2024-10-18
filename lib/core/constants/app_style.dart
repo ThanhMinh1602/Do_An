@@ -142,6 +142,12 @@ class AppStyle {
     fontWeight: bold,
     color: AppColor.whiteColor,
   );
+  static TextStyle bold_12 = TextStyle(
+    fontSize: 12.0.sp,
+    fontWeight: bold,
+    fontFamily: "SF Pro Display",
+    color: AppColor.green500,
+  );
 
   // Medium styles
   static TextStyle medium_28 = TextStyle(
