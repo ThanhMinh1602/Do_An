@@ -9,7 +9,6 @@ import 'package:do_an_flutter/core/utils/scroll_utils.dart';
 import 'package:do_an_flutter/core/utils/spaces.dart';
 import 'package:do_an_flutter/features/trading/presentation/widgets/mobile/trading_content_mobile.dart';
 import 'package:do_an_flutter/features/trading/presentation/widgets/mobile/trading_header_mobile.dart';
-import 'package:do_an_flutter/features/trading/presentation/widgets/mobile/trading_statistics_mobile_widget.dart';
 import 'package:do_an_flutter/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -111,12 +110,13 @@ class _TradingMobileState extends State<TradingMobile>
     return GradientContainerCustom(
       padding: EdgeInsets.symmetric(vertical: 4.0.h, horizontal: 12.0.w),
       child: RichText(
+        overflow: TextOverflow.ellipsis,
         text: TextSpan(
           children: [
             TextSpan(
-                text: 'BTC: ',
-                style:
-                    AppStyle.regular_12.copyWith(color: AppColor.primaryColor)),
+              text: 'BTC: ',
+              style: AppStyle.regular_12.copyWith(color: AppColor.primaryColor),
+            ),
             TextSpan(text: '\$65.233,12', style: AppStyle.medium_12),
           ],
         ),
