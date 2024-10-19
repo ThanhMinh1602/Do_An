@@ -41,7 +41,6 @@ class MyApp extends StatelessWidget {
             fontFamily: 'FSProDisplay',
           ),
           home: const MainPage(),
-          // home: TradingPage(),
         );
       },
     );

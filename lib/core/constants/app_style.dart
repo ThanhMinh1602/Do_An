@@ -9,12 +9,19 @@ class AppStyle {
   // Header and description styles
   static TextStyle textHeader = TextStyle(
     fontSize: 40.sp,
-    fontWeight: FontWeight.w600,
+    fontFamily: "SFSProDisplay",
+    fontWeight: FontWeight.bold,
   );
 
   static TextStyle textDescription = TextStyle(
     fontSize: 18.sp,
     fontWeight: FontWeight.w400,
+  );
+
+  static TextStyle fashLoanService = TextStyle(
+    fontSize: 32.sp,
+    fontFamily: "SFSProDisplay",
+    fontWeight: FontWeight.bold,
   );
 
   // Title and content styles
@@ -363,6 +370,7 @@ class DesktopAppStyle {
   static TextStyle semibold_14 = const TextStyle(
     fontSize: 14.0,
     fontWeight: semibold,
+    fontFamily: "SFProDisplay",
     color: AppColor.whiteColor,
   );
   static TextStyle semibold_12 = const TextStyle(

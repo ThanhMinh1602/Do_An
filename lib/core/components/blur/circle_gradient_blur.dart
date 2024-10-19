@@ -1,5 +1,7 @@
 import 'dart:ui';
 
+import 'package:do_an_flutter/core/constants/app_color.dart';
+import 'package:do_an_flutter/core/constants/app_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -35,9 +37,10 @@ class CircleGradientBlur extends StatelessWidget {
             end: Alignment.bottomCenter,
             colors: colors ??
                 [
-                  Colors.purpleAccent,
-                  Colors.blueAccent,
+                  AppColor.c_DC349E.withOpacity(1),
+                  AppColor.c_31D0D0.withOpacity(1),
                 ],
+            stops: const [0.0, 1.0],
           ),
         ),
       ),

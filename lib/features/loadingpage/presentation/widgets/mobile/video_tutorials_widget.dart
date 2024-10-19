@@ -44,11 +44,10 @@ class _VideoTutorialsWidgetState extends State<VideoTutorialsWidget> {
           Column(
             children: [
               GradientText(
-                text: "Galaxy\nVideo Tutorials",
-                style: AppStyle.textHeader,
+                text: "Flash Loans Service",
+                style: AppStyle.fashLoanService,
                 gradient: AppColor.buildGradient(),
               ),
-              spaceH24,
               _buildVideoPlayer(),
             ],
           ),
@@ -129,7 +128,7 @@ class _VideoTutorialsWidgetState extends State<VideoTutorialsWidget> {
 
   Widget _buildBottomControlBar() {
     return Positioned(
-      bottom: 12,
+      bottom: 100.0.h,
       left: 12.0.w,
       right: 12.0.w,
       child: Row(

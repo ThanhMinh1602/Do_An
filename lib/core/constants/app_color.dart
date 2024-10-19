@@ -48,6 +48,7 @@ class AppColor {
             AppColor.c_31D0D0.withOpacity(opacity ?? 1),
             AppColor.c_DC349E.withOpacity(opacity ?? 1)
           ],
+      stops: const [0, 1],
     );
   }
 }
