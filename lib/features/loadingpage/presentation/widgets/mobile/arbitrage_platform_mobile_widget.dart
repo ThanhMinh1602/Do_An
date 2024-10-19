@@ -1,25 +1,27 @@
+import 'package:do_an_flutter/core/components/button/custom_button.dart';
 import 'package:do_an_flutter/core/components/card/model/information.dart';
 import 'package:do_an_flutter/core/components/gradient_icon_custom.dart';
+import 'package:do_an_flutter/core/components/social_icon_custom.dart';
 import 'package:do_an_flutter/core/components/text/gradient_text.dart';
 import 'package:do_an_flutter/core/constants/app_color.dart';
 import 'package:do_an_flutter/core/constants/app_style.dart';
+import 'package:do_an_flutter/core/utils/desktop_space.dart';
 import 'package:do_an_flutter/core/utils/spaces.dart';
-import 'package:do_an_flutter/features/loadingpage/presentation/widgets/mobile/explore_button.dart';
 import 'package:do_an_flutter/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 
-class ArbitragePlatform extends StatelessWidget {
+class ArbitragePlatformMobile extends StatelessWidget {
   final Function onTapJoinNow;
-  const ArbitragePlatform({super.key, required this.onTapJoinNow});
+  const ArbitragePlatformMobile({super.key, required this.onTapJoinNow});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         _buildTitle(),
-        spaceH10,
+        spaceH24,
         _buildBanner(),
         spaceH20,
         GridView.builder(
@@ -31,11 +33,12 @@ class ArbitragePlatform extends StatelessWidget {
             crossAxisCount: 2,
             crossAxisSpacing: 16.w,
             mainAxisSpacing: 16.h,
-            childAspectRatio: 0.78,
+            // childAspectRatio: 0.78,
+            childAspectRatio: 171 / 182,
           ),
           itemBuilder: (context, index) {
             return SizedBox(
-              height: 206.0.h,
+              height: 430.0.h,
               child: Stack(
                 children: [_buildGridCard(index), _buildGridIcon(index)],
               ),
@@ -64,7 +67,7 @@ class ArbitragePlatform extends StatelessWidget {
       right: 0,
       top: 26.h,
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 16.0.w)
+        padding: EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 16.0.w)
             .copyWith(top: 36.0.h, bottom: 24.0.h),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.r),
@@ -110,42 +113,50 @@ class ArbitragePlatform extends StatelessWidget {
   }
 
   Widget _buildTitle() {
-    return Column(
-      children: [
-        GradientText(
-          text: "The World’s Best ",
-          style: AppStyle.textHeader,
-          gradient: AppColor.buildGradient(),
-        ),
-        spaceH4,
-        Center(
-          child: GradientText(
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Column(
+        children: [
+          GradientText(
+            text: "The World’s Best ",
+            style: AppStyle.textHeader,
+            gradient: AppColor.buildGradient(),
+          ),
+          GradientText(
             text: "Arbitrage Platform",
             style: AppStyle.textHeader,
             gradient: AppColor.buildGradient(),
           ),
-        ),
-        spaceH8,
-        Text(
-          "Automated Operation By Smart Contract",
-          textAlign: TextAlign.center,
-          style: TextStyle(color: Colors.white, fontSize: 18.sp),
-        ),
-        spaceH8,
-        ExploreButton(
-          title: 'Join Now',
-          onTap: onTapJoinNow,
-        )
-      ],
+          spaceH8,
+          Text(
+            "Automated Operation By Smart Contract",
+            textAlign: TextAlign.center,
+            style: TextStyle(color: Colors.white, fontSize: 18.sp),
+          ),
+          spaceH24,
+          CustomButton(
+            btnTxt: 'Join Now',
+            textStyle: AppStyle.semibold_16,
+            width: 153.w,
+            height: 48.h,
+            borderRadius: 14.r,
+            icon: Assets.icons.arrowRightFill.path,
+            gradient: AppColor.buildGradient(),
+            onTap: () {},
+          ),
+          spaceH24,
+          const SocialIconsMobile(),
+        ],
+      ),
     );
   }
 
   Widget _buildBanner() {
     return Image.asset(
-      Assets.images.headerbanner.path,
+      Assets.images.mobileBanner.path,
       fit: BoxFit.cover,
       width: double.infinity,
-      height: 300.0.h,
+      height: 320.h,
     );
   }
 }

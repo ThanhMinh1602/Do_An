@@ -38,7 +38,7 @@ class _PowerLowestNetworkFeesWidgetState
         spaceH12,
         GradientText(
           text: "The Power of\nLowest Network Fees",
-          style: AppStyle.textHeader,
+          style: AppStyle.fashLoanService,
           gradient: AppColor.buildGradient(),
         ),
         spaceH24,
@@ -97,7 +97,6 @@ class _PowerLowestNetworkFeesWidgetState
           right: 0,
           child: GradientIconCustom(
             iconPath: iconPath,
-            padding: EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 8.0.h),
             height: 40.0.h,
             width: 56.0.w,
           ),

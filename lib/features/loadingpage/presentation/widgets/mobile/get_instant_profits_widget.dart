@@ -98,7 +98,7 @@ class _GetInstantProfitsWidgetState extends State<GetInstantProfitsWidget> {
               children: [
                 GradientText(
                   text: "Get Instant Profits At",
-                  style: AppStyle.textHeader,
+                  style: AppStyle.fashLoanService,
                   gradient: AppColor.buildGradient(),
                 ),
                 spaceH12,
@@ -124,7 +124,7 @@ class _GetInstantProfitsWidgetState extends State<GetInstantProfitsWidget> {
               width: screenWidth,
               height: (screenHeight < 700)
                   ? screenHeight * 0.56
-                  : screenHeight * 0.5,
+                  : screenHeight * 0.54,
               child: Row(
                 children: [
                   const PageNavigationButton(),

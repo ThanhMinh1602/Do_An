@@ -24,6 +24,7 @@ class GradientText extends StatelessWidget {
       child: Text(
         textAlign: textAlign ?? TextAlign.center,
         text,
+        maxLines: 44,
         style: style.copyWith(color: Colors.white, shadows: [
           Shadow(
             color: AppColor.c_DC349E.withOpacity(0.5),

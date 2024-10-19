@@ -49,7 +49,7 @@ class _VideoTutorialsWidgetState extends State<DtVideoTutorialsWidget> {
           Column(
             children: [
               GradientText(
-                text: "Galaxy Video Tutorials",
+                text: "Flash Loans Service",
                 style: DesktopAppStyle.boldStyle_36,
                 gradient: AppColor.buildGradient(),
               ),

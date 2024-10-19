@@ -9,10 +9,12 @@ class BackgroundCustom extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(children: [
-      CircleBlueBlur(top: context.getHeight * -0.4),
-      CirclePinkBlur(top: context.getHeight * 0.4),
-      Positioned.fill(child: child)
-    ]);
+    return Stack(
+      children: [
+        CircleBlueBlur(top: context.getHeight * -0.4),
+        CirclePinkBlur(top: context.getHeight * 0.4),
+        Positioned.fill(child: child),
+      ],
+    );
   }
 }

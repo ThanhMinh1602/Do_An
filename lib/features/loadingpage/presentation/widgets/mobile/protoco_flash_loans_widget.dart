@@ -67,6 +67,7 @@ class _ProtocoFlashLoansWidgetState extends State<ProtocoFlashLoansWidget>
             Assets.images.aaveBanner.path,
             width: double.infinity,
             fit: BoxFit.cover,
+            height: 182.h,
           ),
           Positioned(
               bottom: 0,

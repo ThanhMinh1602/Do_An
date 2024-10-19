@@ -153,7 +153,7 @@ class DtArbitragePlatformWidget extends StatelessWidget {
           onTap: onTapJoinNow,
         ),
         dtSpaceH28,
-        const SocialIcons(),
+        const SocialIconsDesktop(),
       ],
     );
   }
